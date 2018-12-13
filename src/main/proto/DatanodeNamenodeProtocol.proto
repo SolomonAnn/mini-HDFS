@@ -1,0 +1,11 @@
+/**
+ * @author: An
+ * @description: Datanode <--> Namenode
+ */
+
+syntax = "proto3";
+
+package cn.edu.cn.tsinghua.hdfs.protocol;
+
+option java_package = "cn.edu.tsinghua.hdfs.protocol";
+option java_outer_classname = "DatanodeNamenodeProtocolProtos";

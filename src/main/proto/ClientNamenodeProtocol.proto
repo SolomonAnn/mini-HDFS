@@ -1,0 +1,42 @@
+/**
+ * @author: An
+ * @description: Client <--> Namenode
+ */
+
+syntax = "proto3";
+
+package cn.edu.cn.tsinghua.hdfs.protocol;
+
+option java_package = "cn.edu.tsinghua.hdfs.protocol";
+option java_outer_classname = "ClientNamenodeProtocolProtos";
+
+//message GetBlockLocationsRequestProto {
+//    string src = 1;     // file name
+//    uint64 offset = 2;  // range start offset
+//    uint64 length = 3;  // range length
+//}
+
+message PathProto {
+    string src = 1;
+    bool hasPermission = 2;
+}
+
+message InitRequestProto {
+}
+
+message InitResponseProto {
+    PathProto path = 1;
+}
+
+message MkdirRequestProto {
+    repeated PathProto path = 1;
+}
+
+message MkdirResponseProto {
+    PathProto path = 1;
+}
+
+service ClientNamenodeProtocol {
+    rpc init(InitRequestProto) returns(InitResponseProto);
+    rpc mkdir(MkdirRequestProto) returns(MkdirResponseProto);
+}
