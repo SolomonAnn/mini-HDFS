@@ -29,6 +29,7 @@ public class Constant {
     public static final String NAMENODE_SHUTDOWN = "*** Done.";
     public static final String CLIENT_GREETING = "Starting client...\r\nWait patiently. :)";
     public static final String INVALID_COMMAND = "Please input correct commands!";
+    public static final String INVALID_FILENAME_OR_DIRECTORY = "Invalid filename or directory!";
 
     public static final int BLOCK_SIZE = 64 * 1024 * 1024; // 64MB
 }

@@ -6,11 +6,13 @@ import cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 /**
  * @author: An
@@ -55,15 +57,54 @@ public class DFSClient {
         return response.getPath().getSrc();
     }
 
+    public String cd(String currentPath, String[] paths) {
+        String path = currentPath + Constant.DIRECTORY_PREFIX + paths[0];
+        if (paths.length != 1) {
+            System.out.println(Constant.INVALID_FILENAME_OR_DIRECTORY);
+            return currentPath;
+        }
+        if (Pattern.matches("[\\\\\\\\/:*?\\\"<>|]", paths[0])) {
+            if (paths[0] != "..") {
+                System.out.println(Constant.INVALID_FILENAME_OR_DIRECTORY);
+                return currentPath;
+            } else {
+                path = StringUtils.substringBeforeLast(currentPath, Constant.DIRECTORY_PREFIX);
+            }
+        }
+        ClientNamenodeProtocolProtos.CdRequestProto request = ClientNamenodeProtocolProtos.CdRequestProto
+                .newBuilder()
+                .setPath(ClientNamenodeProtocolProtos.PathProto
+                            .newBuilder()
+                            .setSrc(path)
+                            .setHasPermission(true)
+                            .build())
+                .build();
+        ClientNamenodeProtocolProtos.CdResponseProto response;
+        try {
+            response = blockingStub.cd(request);
+            if (response.getPath().getHasPermission() == false) {
+                System.out.println(Constant.INVALID_FILENAME_OR_DIRECTORY);
+            }
+        } catch (StatusRuntimeException e) {
+            logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+            return null;
+        }
+        return response.getPath().getSrc();
+    }
+
     public String mkdir(String currentPath, String[] paths) {
         ClientNamenodeProtocolProtos.MkdirRequestProto.Builder request = ClientNamenodeProtocolProtos.MkdirRequestProto
                 .newBuilder();
         for (String path : paths) {
-            request.addPath(ClientNamenodeProtocolProtos.PathProto
-                    .newBuilder()
-                    .setSrc(currentPath + Constant.DIRECTORY_PREFIX + path)
-                    .setHasPermission(true)
-                    .build());
+            if (Pattern.matches("[\\\\\\\\/:*?\\\"<>|]", path)) {
+                System.out.println(Constant.INVALID_FILENAME_OR_DIRECTORY);
+            } else {
+                request.addPath(ClientNamenodeProtocolProtos.PathProto
+                        .newBuilder()
+                        .setSrc(currentPath + Constant.DIRECTORY_PREFIX + path)
+                        .setHasPermission(true)
+                        .build());
+            }
         }
         ClientNamenodeProtocolProtos.MkdirResponseProto response;
         try {
@@ -90,10 +131,12 @@ public class DFSClient {
                 if (command.startsWith(Constant.CMD_IDENTIFIER)) {
                     command = command.substring(Constant.CMD_IDENTIFIER.length() + 1);
                     pieces = command.split(" ");
-                    if (pieces[0].equals(Constant.MKDIR)) {
+                    if (pieces[0].equals(Constant.CD)) {
+                        command = command.substring(Constant.CD.length() + 1);
+                        currentPath = client.cd(currentPath, command.split(" "));
+                    } else if (pieces[0].equals(Constant.MKDIR)) {
                         command = command.substring(Constant.MKDIR.length() + 1);
-                        pieces = command.split(" ");
-                        currentPath = client.mkdir(currentPath, pieces);
+                        currentPath = client.mkdir(currentPath, command.split(" "));
                     }
                     System.out.println(currentPath + Constant.CMD_SUFFIX);
                 } else {

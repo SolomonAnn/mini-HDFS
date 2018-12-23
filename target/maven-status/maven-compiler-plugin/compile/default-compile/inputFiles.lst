@@ -1,0 +1,10 @@
+C:\Users\thss1\Desktop\mini-HDFS\src\main\java\cn\edu\tsinghua\hdfs\server\namenode\Namenode.java
+C:\Users\thss1\Desktop\mini-HDFS\target\generated-sources\protobuf\java\cn\edu\tsinghua\hdfs\protocol\ClientNamenodeProtocolProtos.java
+C:\Users\thss1\Desktop\mini-HDFS\src\main\java\cn\edu\tsinghua\hdfs\client\DFSClient.java
+C:\Users\thss1\Desktop\mini-HDFS\src\main\java\cn\edu\tsinghua\hdfs\constant\Constant.java
+C:\Users\thss1\Desktop\mini-HDFS\target\generated-sources\protobuf\java\cn\edu\tsinghua\hdfs\protocol\InterDatanodeProtocolProtos.java
+C:\Users\thss1\Desktop\mini-HDFS\target\generated-sources\protobuf\grpc-java\cn\edu\tsinghua\hdfs\protocol\ClientNamenodeProtocolGrpc.java
+C:\Users\thss1\Desktop\mini-HDFS\target\generated-sources\protobuf\java\cn\edu\tsinghua\hdfs\protocol\ClientDatanodeProtocolProtos.java
+C:\Users\thss1\Desktop\mini-HDFS\src\main\java\cn\edu\tsinghua\hdfs\server\datanode\Datanode.java
+C:\Users\thss1\Desktop\mini-HDFS\src\main\java\cn\edu\tsinghua\hdfs\protocol\ClientNamenodeProtocolImpl.java
+C:\Users\thss1\Desktop\mini-HDFS\target\generated-sources\protobuf\java\cn\edu\tsinghua\hdfs\protocol\DatanodeNamenodeProtocolProtos.java

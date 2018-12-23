@@ -1,10 +1,9 @@
 package cn.edu.tsinghua.hdfs.protocol;
 
-import cn.edu.tsinghua.hdfs.constant.Constant;
 import io.grpc.stub.StreamObserver;
 
 import java.io.File;
-import java.util.List;
+import java.io.IOException;
 
 /**
  * @author: An
@@ -21,6 +20,31 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
                         .newBuilder()
                         .setSrc(System.getProperty("user.dir"))
                         .setHasPermission(true)
+                        .build())
+                .build();
+        responseObserver.onNext(response);
+        responseObserver.onCompleted();
+    }
+
+    @Override
+    public void cd(ClientNamenodeProtocolProtos.CdRequestProto request, StreamObserver<ClientNamenodeProtocolProtos.CdResponseProto> responseObserver) {
+        String basePath = System.getProperty("user.dir");
+        String path = request.getPath().getSrc();
+        File file = new File(path);
+        Boolean hasPermission = true;
+        if (!file.exists()) {
+            path = basePath;
+            hasPermission = false;
+        }
+        if (path.compareTo(basePath) < 0) {
+            path = basePath;
+        }
+        ClientNamenodeProtocolProtos.CdResponseProto response = ClientNamenodeProtocolProtos.CdResponseProto
+                .newBuilder()
+                .setPath(ClientNamenodeProtocolProtos.PathProto
+                        .newBuilder()
+                        .setSrc(path)
+                        .setHasPermission(hasPermission)
                         .build())
                 .build();
         responseObserver.onNext(response);
@@ -50,4 +74,5 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
         responseObserver.onNext(response);
         responseObserver.onCompleted();
     }
+
 }
