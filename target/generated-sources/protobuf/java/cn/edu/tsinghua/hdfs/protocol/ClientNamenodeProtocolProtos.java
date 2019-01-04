@@ -14,620 +14,6 @@ public final class ClientNamenodeProtocolProtos {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface PathProtoOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.PathProto)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string src = 1;</code>
-     */
-    java.lang.String getSrc();
-    /**
-     * <code>string src = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getSrcBytes();
-
-    /**
-     * <code>bool hasPermission = 2;</code>
-     */
-    boolean getHasPermission();
-  }
-  /**
-   * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.PathProto}
-   */
-  public  static final class PathProto extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:cn.edu.cn.tsinghua.hdfs.protocol.PathProto)
-      PathProtoOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use PathProto.newBuilder() to construct.
-    private PathProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private PathProto() {
-      src_ = "";
-      hasPermission_ = false;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private PathProto(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              src_ = s;
-              break;
-            }
-            case 16: {
-
-              hasPermission_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PathProto_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PathProto_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder.class);
-    }
-
-    public static final int SRC_FIELD_NUMBER = 1;
-    private volatile java.lang.Object src_;
-    /**
-     * <code>string src = 1;</code>
-     */
-    public java.lang.String getSrc() {
-      java.lang.Object ref = src_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        src_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string src = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getSrcBytes() {
-      java.lang.Object ref = src_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        src_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int HASPERMISSION_FIELD_NUMBER = 2;
-    private boolean hasPermission_;
-    /**
-     * <code>bool hasPermission = 2;</code>
-     */
-    public boolean getHasPermission() {
-      return hasPermission_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getSrcBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, src_);
-      }
-      if (hasPermission_ != false) {
-        output.writeBool(2, hasPermission_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getSrcBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, src_);
-      }
-      if (hasPermission_ != false) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBoolSize(2, hasPermission_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto)) {
-        return super.equals(obj);
-      }
-      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto other = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto) obj;
-
-      boolean result = true;
-      result = result && getSrc()
-          .equals(other.getSrc());
-      result = result && (getHasPermission()
-          == other.getHasPermission());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + SRC_FIELD_NUMBER;
-      hash = (53 * hash) + getSrc().hashCode();
-      hash = (37 * hash) + HASPERMISSION_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
-          getHasPermission());
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.PathProto}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:cn.edu.cn.tsinghua.hdfs.protocol.PathProto)
-        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PathProto_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PathProto_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder.class);
-      }
-
-      // Construct using cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        src_ = "";
-
-        hasPermission_ = false;
-
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PathProto_descriptor;
-      }
-
-      @java.lang.Override
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto getDefaultInstanceForType() {
-        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto build() {
-        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto buildPartial() {
-        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto result = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto(this);
-        result.src_ = src_;
-        result.hasPermission_ = hasPermission_;
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto) {
-          return mergeFrom((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto other) {
-        if (other == cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.getDefaultInstance()) return this;
-        if (!other.getSrc().isEmpty()) {
-          src_ = other.src_;
-          onChanged();
-        }
-        if (other.getHasPermission() != false) {
-          setHasPermission(other.getHasPermission());
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object src_ = "";
-      /**
-       * <code>string src = 1;</code>
-       */
-      public java.lang.String getSrc() {
-        java.lang.Object ref = src_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          src_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string src = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getSrcBytes() {
-        java.lang.Object ref = src_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          src_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string src = 1;</code>
-       */
-      public Builder setSrc(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        src_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string src = 1;</code>
-       */
-      public Builder clearSrc() {
-        
-        src_ = getDefaultInstance().getSrc();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string src = 1;</code>
-       */
-      public Builder setSrcBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        src_ = value;
-        onChanged();
-        return this;
-      }
-
-      private boolean hasPermission_ ;
-      /**
-       * <code>bool hasPermission = 2;</code>
-       */
-      public boolean getHasPermission() {
-        return hasPermission_;
-      }
-      /**
-       * <code>bool hasPermission = 2;</code>
-       */
-      public Builder setHasPermission(boolean value) {
-        
-        hasPermission_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>bool hasPermission = 2;</code>
-       */
-      public Builder clearHasPermission() {
-        
-        hasPermission_ = false;
-        onChanged();
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:cn.edu.cn.tsinghua.hdfs.protocol.PathProto)
-    }
-
-    // @@protoc_insertion_point(class_scope:cn.edu.cn.tsinghua.hdfs.protocol.PathProto)
-    private static final cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto();
-    }
-
-    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<PathProto>
-        PARSER = new com.google.protobuf.AbstractParser<PathProto>() {
-      @java.lang.Override
-      public PathProto parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PathProto(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<PathProto> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<PathProto> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface InitRequestProtoOrBuilder extends
       // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.InitRequestProto)
       com.google.protobuf.MessageOrBuilder {
@@ -1051,11 +437,11 @@ public final class ClientNamenodeProtocolProtos {
     /**
      * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
-    cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto getPath();
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath();
     /**
      * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
-    cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder getPathOrBuilder();
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder();
   }
   /**
    * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.InitResponseProto}
@@ -1097,11 +483,11 @@ public final class ClientNamenodeProtocolProtos {
               done = true;
               break;
             case 10: {
-              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder subBuilder = null;
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder subBuilder = null;
               if (path_ != null) {
                 subBuilder = path_.toBuilder();
               }
-              path_ = input.readMessage(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.parser(), extensionRegistry);
+              path_ = input.readMessage(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(path_);
                 path_ = subBuilder.buildPartial();
@@ -1142,7 +528,7 @@ public final class ClientNamenodeProtocolProtos {
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
-    private cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto path_;
+    private cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto path_;
     /**
      * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
@@ -1152,13 +538,13 @@ public final class ClientNamenodeProtocolProtos {
     /**
      * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
-    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto getPath() {
-      return path_ == null ? cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.getDefaultInstance() : path_;
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath() {
+      return path_ == null ? cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
     }
     /**
      * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
-    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
       return getPath();
     }
 
@@ -1478,9 +864,9 @@ public final class ClientNamenodeProtocolProtos {
         return this;
       }
 
-      private cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto path_ = null;
+      private cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto path_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder> pathBuilder_;
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> pathBuilder_;
       /**
        * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
@@ -1490,9 +876,9 @@ public final class ClientNamenodeProtocolProtos {
       /**
        * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto getPath() {
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath() {
         if (pathBuilder_ == null) {
-          return path_ == null ? cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.getDefaultInstance() : path_;
+          return path_ == null ? cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
         } else {
           return pathBuilder_.getMessage();
         }
@@ -1500,7 +886,7 @@ public final class ClientNamenodeProtocolProtos {
       /**
        * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public Builder setPath(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto value) {
+      public Builder setPath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
         if (pathBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1517,7 +903,7 @@ public final class ClientNamenodeProtocolProtos {
        * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
       public Builder setPath(
-          cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder builderForValue) {
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
         if (pathBuilder_ == null) {
           path_ = builderForValue.build();
           onChanged();
@@ -1530,11 +916,11 @@ public final class ClientNamenodeProtocolProtos {
       /**
        * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public Builder mergePath(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto value) {
+      public Builder mergePath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
         if (pathBuilder_ == null) {
           if (path_ != null) {
             path_ =
-              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.newBuilder(path_).mergeFrom(value).buildPartial();
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.newBuilder(path_).mergeFrom(value).buildPartial();
           } else {
             path_ = value;
           }
@@ -1562,7 +948,7 @@ public final class ClientNamenodeProtocolProtos {
       /**
        * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder getPathBuilder() {
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder getPathBuilder() {
         
         onChanged();
         return getPathFieldBuilder().getBuilder();
@@ -1570,23 +956,23 @@ public final class ClientNamenodeProtocolProtos {
       /**
        * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
         if (pathBuilder_ != null) {
           return pathBuilder_.getMessageOrBuilder();
         } else {
           return path_ == null ?
-              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.getDefaultInstance() : path_;
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
         }
       }
       /**
        * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder> 
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
           getPathFieldBuilder() {
         if (pathBuilder_ == null) {
           pathBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder>(
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder>(
                   getPath(),
                   getParentForChildren(),
                   isClean());
@@ -1647,19 +1033,1904 @@ public final class ClientNamenodeProtocolProtos {
 
   }
 
-  public interface MkdirRequestProtoOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.MkdirRequestProto)
+  public interface CdRequestProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.CdRequestProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    boolean hasPath();
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath();
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder();
+  }
+  /**
+   * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.CdRequestProto}
+   */
+  public  static final class CdRequestProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cn.edu.cn.tsinghua.hdfs.protocol.CdRequestProto)
+      CdRequestProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CdRequestProto.newBuilder() to construct.
+    private CdRequestProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CdRequestProto() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CdRequestProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder subBuilder = null;
+              if (path_ != null) {
+                subBuilder = path_.toBuilder();
+              }
+              path_ = input.readMessage(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(path_);
+                path_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdRequestProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdRequestProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto.Builder.class);
+    }
+
+    public static final int PATH_FIELD_NUMBER = 1;
+    private cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto path_;
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public boolean hasPath() {
+      return path_ != null;
+    }
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath() {
+      return path_ == null ? cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+    }
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
+      return getPath();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (path_ != null) {
+        output.writeMessage(1, getPath());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (path_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getPath());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto)) {
+        return super.equals(obj);
+      }
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto other = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto) obj;
+
+      boolean result = true;
+      result = result && (hasPath() == other.hasPath());
+      if (hasPath()) {
+        result = result && getPath()
+            .equals(other.getPath());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasPath()) {
+        hash = (37 * hash) + PATH_FIELD_NUMBER;
+        hash = (53 * hash) + getPath().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.CdRequestProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cn.edu.cn.tsinghua.hdfs.protocol.CdRequestProto)
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdRequestProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdRequestProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto.Builder.class);
+      }
+
+      // Construct using cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (pathBuilder_ == null) {
+          path_ = null;
+        } else {
+          path_ = null;
+          pathBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdRequestProto_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto getDefaultInstanceForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto build() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto buildPartial() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto result = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto(this);
+        if (pathBuilder_ == null) {
+          result.path_ = path_;
+        } else {
+          result.path_ = pathBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto) {
+          return mergeFrom((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto other) {
+        if (other == cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto.getDefaultInstance()) return this;
+        if (other.hasPath()) {
+          mergePath(other.getPath());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto path_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> pathBuilder_;
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public boolean hasPath() {
+        return pathBuilder_ != null || path_ != null;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath() {
+        if (pathBuilder_ == null) {
+          return path_ == null ? cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+        } else {
+          return pathBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          path_ = value;
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          path_ = builderForValue.build();
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder mergePath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (path_ != null) {
+            path_ =
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.newBuilder(path_).mergeFrom(value).buildPartial();
+          } else {
+            path_ = value;
+          }
+          onChanged();
+        } else {
+          pathBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder clearPath() {
+        if (pathBuilder_ == null) {
+          path_ = null;
+          onChanged();
+        } else {
+          path_ = null;
+          pathBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder getPathBuilder() {
+        
+        onChanged();
+        return getPathFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
+        if (pathBuilder_ != null) {
+          return pathBuilder_.getMessageOrBuilder();
+        } else {
+          return path_ == null ?
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+        }
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+          getPathFieldBuilder() {
+        if (pathBuilder_ == null) {
+          pathBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder>(
+                  getPath(),
+                  getParentForChildren(),
+                  isClean());
+          path_ = null;
+        }
+        return pathBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cn.edu.cn.tsinghua.hdfs.protocol.CdRequestProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:cn.edu.cn.tsinghua.hdfs.protocol.CdRequestProto)
+    private static final cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto();
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CdRequestProto>
+        PARSER = new com.google.protobuf.AbstractParser<CdRequestProto>() {
+      @java.lang.Override
+      public CdRequestProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CdRequestProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CdRequestProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CdRequestProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface CdResponseProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.CdResponseProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    boolean hasPath();
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath();
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder();
+
+    /**
+     * <code>bool isSuccessful = 2;</code>
+     */
+    boolean getIsSuccessful();
+  }
+  /**
+   * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.CdResponseProto}
+   */
+  public  static final class CdResponseProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cn.edu.cn.tsinghua.hdfs.protocol.CdResponseProto)
+      CdResponseProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use CdResponseProto.newBuilder() to construct.
+    private CdResponseProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private CdResponseProto() {
+      isSuccessful_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CdResponseProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder subBuilder = null;
+              if (path_ != null) {
+                subBuilder = path_.toBuilder();
+              }
+              path_ = input.readMessage(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(path_);
+                path_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 16: {
+
+              isSuccessful_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdResponseProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdResponseProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto.Builder.class);
+    }
+
+    public static final int PATH_FIELD_NUMBER = 1;
+    private cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto path_;
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public boolean hasPath() {
+      return path_ != null;
+    }
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath() {
+      return path_ == null ? cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+    }
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
+      return getPath();
+    }
+
+    public static final int ISSUCCESSFUL_FIELD_NUMBER = 2;
+    private boolean isSuccessful_;
+    /**
+     * <code>bool isSuccessful = 2;</code>
+     */
+    public boolean getIsSuccessful() {
+      return isSuccessful_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (path_ != null) {
+        output.writeMessage(1, getPath());
+      }
+      if (isSuccessful_ != false) {
+        output.writeBool(2, isSuccessful_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (path_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getPath());
+      }
+      if (isSuccessful_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, isSuccessful_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto)) {
+        return super.equals(obj);
+      }
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto other = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto) obj;
+
+      boolean result = true;
+      result = result && (hasPath() == other.hasPath());
+      if (hasPath()) {
+        result = result && getPath()
+            .equals(other.getPath());
+      }
+      result = result && (getIsSuccessful()
+          == other.getIsSuccessful());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasPath()) {
+        hash = (37 * hash) + PATH_FIELD_NUMBER;
+        hash = (53 * hash) + getPath().hashCode();
+      }
+      hash = (37 * hash) + ISSUCCESSFUL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsSuccessful());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.CdResponseProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cn.edu.cn.tsinghua.hdfs.protocol.CdResponseProto)
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdResponseProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdResponseProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto.Builder.class);
+      }
+
+      // Construct using cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (pathBuilder_ == null) {
+          path_ = null;
+        } else {
+          path_ = null;
+          pathBuilder_ = null;
+        }
+        isSuccessful_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdResponseProto_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto getDefaultInstanceForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto build() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto buildPartial() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto result = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto(this);
+        if (pathBuilder_ == null) {
+          result.path_ = path_;
+        } else {
+          result.path_ = pathBuilder_.build();
+        }
+        result.isSuccessful_ = isSuccessful_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto) {
+          return mergeFrom((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto other) {
+        if (other == cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto.getDefaultInstance()) return this;
+        if (other.hasPath()) {
+          mergePath(other.getPath());
+        }
+        if (other.getIsSuccessful() != false) {
+          setIsSuccessful(other.getIsSuccessful());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto path_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> pathBuilder_;
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public boolean hasPath() {
+        return pathBuilder_ != null || path_ != null;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath() {
+        if (pathBuilder_ == null) {
+          return path_ == null ? cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+        } else {
+          return pathBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          path_ = value;
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          path_ = builderForValue.build();
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder mergePath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (path_ != null) {
+            path_ =
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.newBuilder(path_).mergeFrom(value).buildPartial();
+          } else {
+            path_ = value;
+          }
+          onChanged();
+        } else {
+          pathBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder clearPath() {
+        if (pathBuilder_ == null) {
+          path_ = null;
+          onChanged();
+        } else {
+          path_ = null;
+          pathBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder getPathBuilder() {
+        
+        onChanged();
+        return getPathFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
+        if (pathBuilder_ != null) {
+          return pathBuilder_.getMessageOrBuilder();
+        } else {
+          return path_ == null ?
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+        }
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+          getPathFieldBuilder() {
+        if (pathBuilder_ == null) {
+          pathBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder>(
+                  getPath(),
+                  getParentForChildren(),
+                  isClean());
+          path_ = null;
+        }
+        return pathBuilder_;
+      }
+
+      private boolean isSuccessful_ ;
+      /**
+       * <code>bool isSuccessful = 2;</code>
+       */
+      public boolean getIsSuccessful() {
+        return isSuccessful_;
+      }
+      /**
+       * <code>bool isSuccessful = 2;</code>
+       */
+      public Builder setIsSuccessful(boolean value) {
+        
+        isSuccessful_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool isSuccessful = 2;</code>
+       */
+      public Builder clearIsSuccessful() {
+        
+        isSuccessful_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cn.edu.cn.tsinghua.hdfs.protocol.CdResponseProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:cn.edu.cn.tsinghua.hdfs.protocol.CdResponseProto)
+    private static final cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto();
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<CdResponseProto>
+        PARSER = new com.google.protobuf.AbstractParser<CdResponseProto>() {
+      @java.lang.Override
+      public CdResponseProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CdResponseProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<CdResponseProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CdResponseProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LsRequestProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.LsRequestProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    boolean hasPath();
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath();
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder();
+  }
+  /**
+   * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.LsRequestProto}
+   */
+  public  static final class LsRequestProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cn.edu.cn.tsinghua.hdfs.protocol.LsRequestProto)
+      LsRequestProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LsRequestProto.newBuilder() to construct.
+    private LsRequestProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LsRequestProto() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LsRequestProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder subBuilder = null;
+              if (path_ != null) {
+                subBuilder = path_.toBuilder();
+              }
+              path_ = input.readMessage(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(path_);
+                path_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsRequestProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsRequestProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto.Builder.class);
+    }
+
+    public static final int PATH_FIELD_NUMBER = 1;
+    private cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto path_;
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public boolean hasPath() {
+      return path_ != null;
+    }
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath() {
+      return path_ == null ? cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+    }
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
+      return getPath();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (path_ != null) {
+        output.writeMessage(1, getPath());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (path_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getPath());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto)) {
+        return super.equals(obj);
+      }
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto other = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto) obj;
+
+      boolean result = true;
+      result = result && (hasPath() == other.hasPath());
+      if (hasPath()) {
+        result = result && getPath()
+            .equals(other.getPath());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasPath()) {
+        hash = (37 * hash) + PATH_FIELD_NUMBER;
+        hash = (53 * hash) + getPath().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.LsRequestProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cn.edu.cn.tsinghua.hdfs.protocol.LsRequestProto)
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsRequestProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsRequestProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto.Builder.class);
+      }
+
+      // Construct using cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (pathBuilder_ == null) {
+          path_ = null;
+        } else {
+          path_ = null;
+          pathBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsRequestProto_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto getDefaultInstanceForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto build() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto buildPartial() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto result = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto(this);
+        if (pathBuilder_ == null) {
+          result.path_ = path_;
+        } else {
+          result.path_ = pathBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto) {
+          return mergeFrom((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto other) {
+        if (other == cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto.getDefaultInstance()) return this;
+        if (other.hasPath()) {
+          mergePath(other.getPath());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto path_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> pathBuilder_;
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public boolean hasPath() {
+        return pathBuilder_ != null || path_ != null;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath() {
+        if (pathBuilder_ == null) {
+          return path_ == null ? cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+        } else {
+          return pathBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          path_ = value;
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          path_ = builderForValue.build();
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder mergePath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (path_ != null) {
+            path_ =
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.newBuilder(path_).mergeFrom(value).buildPartial();
+          } else {
+            path_ = value;
+          }
+          onChanged();
+        } else {
+          pathBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder clearPath() {
+        if (pathBuilder_ == null) {
+          path_ = null;
+          onChanged();
+        } else {
+          path_ = null;
+          pathBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder getPathBuilder() {
+        
+        onChanged();
+        return getPathFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
+        if (pathBuilder_ != null) {
+          return pathBuilder_.getMessageOrBuilder();
+        } else {
+          return path_ == null ?
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+        }
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+          getPathFieldBuilder() {
+        if (pathBuilder_ == null) {
+          pathBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder>(
+                  getPath(),
+                  getParentForChildren(),
+                  isClean());
+          path_ = null;
+        }
+        return pathBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cn.edu.cn.tsinghua.hdfs.protocol.LsRequestProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:cn.edu.cn.tsinghua.hdfs.protocol.LsRequestProto)
+    private static final cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto();
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LsRequestProto>
+        PARSER = new com.google.protobuf.AbstractParser<LsRequestProto>() {
+      @java.lang.Override
+      public LsRequestProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LsRequestProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LsRequestProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LsRequestProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface LsResponseProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.LsResponseProto)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
-    java.util.List<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto> 
+    java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> 
         getPathList();
     /**
      * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
-    cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto getPath(int index);
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath(int index);
     /**
      * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
@@ -1667,12 +2938,794 @@ public final class ClientNamenodeProtocolProtos {
     /**
      * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
-    java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder> 
+    java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
         getPathOrBuilderList();
     /**
      * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
-    cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder getPathOrBuilder(
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.LsResponseProto}
+   */
+  public  static final class LsResponseProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cn.edu.cn.tsinghua.hdfs.protocol.LsResponseProto)
+      LsResponseProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use LsResponseProto.newBuilder() to construct.
+    private LsResponseProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private LsResponseProto() {
+      path_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private LsResponseProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                path_ = new java.util.ArrayList<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              path_.add(
+                  input.readMessage(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          path_ = java.util.Collections.unmodifiableList(path_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsResponseProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsResponseProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto.Builder.class);
+    }
+
+    public static final int PATH_FIELD_NUMBER = 1;
+    private java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> path_;
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> getPathList() {
+      return path_;
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+        getPathOrBuilderList() {
+      return path_;
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public int getPathCount() {
+      return path_.size();
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath(int index) {
+      return path_.get(index);
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder(
+        int index) {
+      return path_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < path_.size(); i++) {
+        output.writeMessage(1, path_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < path_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, path_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto)) {
+        return super.equals(obj);
+      }
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto other = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto) obj;
+
+      boolean result = true;
+      result = result && getPathList()
+          .equals(other.getPathList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getPathCount() > 0) {
+        hash = (37 * hash) + PATH_FIELD_NUMBER;
+        hash = (53 * hash) + getPathList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.LsResponseProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cn.edu.cn.tsinghua.hdfs.protocol.LsResponseProto)
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsResponseProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsResponseProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto.Builder.class);
+      }
+
+      // Construct using cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getPathFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (pathBuilder_ == null) {
+          path_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          pathBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsResponseProto_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto getDefaultInstanceForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto build() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto buildPartial() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto result = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto(this);
+        int from_bitField0_ = bitField0_;
+        if (pathBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            path_ = java.util.Collections.unmodifiableList(path_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.path_ = path_;
+        } else {
+          result.path_ = pathBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto) {
+          return mergeFrom((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto other) {
+        if (other == cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto.getDefaultInstance()) return this;
+        if (pathBuilder_ == null) {
+          if (!other.path_.isEmpty()) {
+            if (path_.isEmpty()) {
+              path_ = other.path_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensurePathIsMutable();
+              path_.addAll(other.path_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.path_.isEmpty()) {
+            if (pathBuilder_.isEmpty()) {
+              pathBuilder_.dispose();
+              pathBuilder_ = null;
+              path_ = other.path_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              pathBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPathFieldBuilder() : null;
+            } else {
+              pathBuilder_.addAllMessages(other.path_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> path_ =
+        java.util.Collections.emptyList();
+      private void ensurePathIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          path_ = new java.util.ArrayList<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto>(path_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> pathBuilder_;
+
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> getPathList() {
+        if (pathBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(path_);
+        } else {
+          return pathBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public int getPathCount() {
+        if (pathBuilder_ == null) {
+          return path_.size();
+        } else {
+          return pathBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath(int index) {
+        if (pathBuilder_ == null) {
+          return path_.get(index);
+        } else {
+          return pathBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePathIsMutable();
+          path_.set(index, value);
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder addPath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePathIsMutable();
+          path_.add(value);
+          onChanged();
+        } else {
+          pathBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder addPath(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePathIsMutable();
+          path_.add(index, value);
+          onChanged();
+        } else {
+          pathBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder addPath(
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.add(builderForValue.build());
+          onChanged();
+        } else {
+          pathBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder addPath(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          pathBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder addAllPath(
+          java.lang.Iterable<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> values) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, path_);
+          onChanged();
+        } else {
+          pathBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder clearPath() {
+        if (pathBuilder_ == null) {
+          path_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          pathBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder removePath(int index) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.remove(index);
+          onChanged();
+        } else {
+          pathBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder getPathBuilder(
+          int index) {
+        return getPathFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder(
+          int index) {
+        if (pathBuilder_ == null) {
+          return path_.get(index);  } else {
+          return pathBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+           getPathOrBuilderList() {
+        if (pathBuilder_ != null) {
+          return pathBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(path_);
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder addPathBuilder() {
+        return getPathFieldBuilder().addBuilder(
+            cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder addPathBuilder(
+          int index) {
+        return getPathFieldBuilder().addBuilder(
+            index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder> 
+           getPathBuilderList() {
+        return getPathFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+          getPathFieldBuilder() {
+        if (pathBuilder_ == null) {
+          pathBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder>(
+                  path_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          path_ = null;
+        }
+        return pathBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cn.edu.cn.tsinghua.hdfs.protocol.LsResponseProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:cn.edu.cn.tsinghua.hdfs.protocol.LsResponseProto)
+    private static final cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto();
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<LsResponseProto>
+        PARSER = new com.google.protobuf.AbstractParser<LsResponseProto>() {
+      @java.lang.Override
+      public LsResponseProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new LsResponseProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<LsResponseProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<LsResponseProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface MkdirRequestProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.MkdirRequestProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> 
+        getPathList();
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath(int index);
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    int getPathCount();
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+        getPathOrBuilderList();
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder(
         int index);
   }
   /**
@@ -1717,11 +3770,11 @@ public final class ClientNamenodeProtocolProtos {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                path_ = new java.util.ArrayList<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto>();
+                path_ = new java.util.ArrayList<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto>();
                 mutable_bitField0_ |= 0x00000001;
               }
               path_.add(
-                  input.readMessage(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.parser(), extensionRegistry));
+                  input.readMessage(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -1760,17 +3813,17 @@ public final class ClientNamenodeProtocolProtos {
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
-    private java.util.List<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto> path_;
+    private java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> path_;
     /**
      * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
-    public java.util.List<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto> getPathList() {
+    public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> getPathList() {
       return path_;
     }
     /**
      * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
-    public java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder> 
+    public java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
         getPathOrBuilderList() {
       return path_;
     }
@@ -1783,13 +3836,13 @@ public final class ClientNamenodeProtocolProtos {
     /**
      * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
-    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto getPath(int index) {
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath(int index) {
       return path_.get(index);
     }
     /**
      * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
      */
-    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder getPathOrBuilder(
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder(
         int index) {
       return path_.get(index);
     }
@@ -2137,22 +4190,22 @@ public final class ClientNamenodeProtocolProtos {
       }
       private int bitField0_;
 
-      private java.util.List<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto> path_ =
+      private java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> path_ =
         java.util.Collections.emptyList();
       private void ensurePathIsMutable() {
         if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          path_ = new java.util.ArrayList<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto>(path_);
+          path_ = new java.util.ArrayList<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto>(path_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder> pathBuilder_;
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> pathBuilder_;
 
       /**
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public java.util.List<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto> getPathList() {
+      public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> getPathList() {
         if (pathBuilder_ == null) {
           return java.util.Collections.unmodifiableList(path_);
         } else {
@@ -2172,7 +4225,7 @@ public final class ClientNamenodeProtocolProtos {
       /**
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto getPath(int index) {
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath(int index) {
         if (pathBuilder_ == null) {
           return path_.get(index);
         } else {
@@ -2183,7 +4236,7 @@ public final class ClientNamenodeProtocolProtos {
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
       public Builder setPath(
-          int index, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto value) {
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
         if (pathBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2200,7 +4253,7 @@ public final class ClientNamenodeProtocolProtos {
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
       public Builder setPath(
-          int index, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder builderForValue) {
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
         if (pathBuilder_ == null) {
           ensurePathIsMutable();
           path_.set(index, builderForValue.build());
@@ -2213,7 +4266,7 @@ public final class ClientNamenodeProtocolProtos {
       /**
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public Builder addPath(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto value) {
+      public Builder addPath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
         if (pathBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2230,7 +4283,7 @@ public final class ClientNamenodeProtocolProtos {
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
       public Builder addPath(
-          int index, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto value) {
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
         if (pathBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2247,7 +4300,7 @@ public final class ClientNamenodeProtocolProtos {
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
       public Builder addPath(
-          cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder builderForValue) {
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
         if (pathBuilder_ == null) {
           ensurePathIsMutable();
           path_.add(builderForValue.build());
@@ -2261,7 +4314,7 @@ public final class ClientNamenodeProtocolProtos {
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
       public Builder addPath(
-          int index, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder builderForValue) {
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
         if (pathBuilder_ == null) {
           ensurePathIsMutable();
           path_.add(index, builderForValue.build());
@@ -2275,7 +4328,7 @@ public final class ClientNamenodeProtocolProtos {
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
       public Builder addAllPath(
-          java.lang.Iterable<? extends cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto> values) {
+          java.lang.Iterable<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> values) {
         if (pathBuilder_ == null) {
           ensurePathIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -2315,14 +4368,14 @@ public final class ClientNamenodeProtocolProtos {
       /**
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder getPathBuilder(
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder getPathBuilder(
           int index) {
         return getPathFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder getPathOrBuilder(
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder(
           int index) {
         if (pathBuilder_ == null) {
           return path_.get(index);  } else {
@@ -2332,7 +4385,7 @@ public final class ClientNamenodeProtocolProtos {
       /**
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder> 
+      public java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
            getPathOrBuilderList() {
         if (pathBuilder_ != null) {
           return pathBuilder_.getMessageOrBuilderList();
@@ -2343,31 +4396,31 @@ public final class ClientNamenodeProtocolProtos {
       /**
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder addPathBuilder() {
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder addPathBuilder() {
         return getPathFieldBuilder().addBuilder(
-            cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.getDefaultInstance());
+            cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance());
       }
       /**
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder addPathBuilder(
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder addPathBuilder(
           int index) {
         return getPathFieldBuilder().addBuilder(
-            index, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.getDefaultInstance());
+            index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance());
       }
       /**
        * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
        */
-      public java.util.List<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder> 
+      public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder> 
            getPathBuilderList() {
         return getPathFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder> 
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
           getPathFieldBuilder() {
         if (pathBuilder_ == null) {
           pathBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder>(
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder>(
                   path_,
                   ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
@@ -2432,19 +4485,6 @@ public final class ClientNamenodeProtocolProtos {
   public interface MkdirResponseProtoOrBuilder extends
       // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.MkdirResponseProto)
       com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-     */
-    boolean hasPath();
-    /**
-     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-     */
-    cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto getPath();
-    /**
-     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-     */
-    cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder getPathOrBuilder();
   }
   /**
    * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.MkdirResponseProto}
@@ -2474,7 +4514,6 @@ public final class ClientNamenodeProtocolProtos {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2485,19 +4524,6 @@ public final class ClientNamenodeProtocolProtos {
             case 0:
               done = true;
               break;
-            case 10: {
-              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder subBuilder = null;
-              if (path_ != null) {
-                subBuilder = path_.toBuilder();
-              }
-              path_ = input.readMessage(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(path_);
-                path_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -2530,27 +4556,6 @@ public final class ClientNamenodeProtocolProtos {
               cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto.Builder.class);
     }
 
-    public static final int PATH_FIELD_NUMBER = 1;
-    private cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto path_;
-    /**
-     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-     */
-    public boolean hasPath() {
-      return path_ != null;
-    }
-    /**
-     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-     */
-    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto getPath() {
-      return path_ == null ? cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.getDefaultInstance() : path_;
-    }
-    /**
-     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-     */
-    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
-      return getPath();
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2565,9 +4570,6 @@ public final class ClientNamenodeProtocolProtos {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (path_ != null) {
-        output.writeMessage(1, getPath());
-      }
       unknownFields.writeTo(output);
     }
 
@@ -2577,10 +4579,6 @@ public final class ClientNamenodeProtocolProtos {
       if (size != -1) return size;
 
       size = 0;
-      if (path_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getPath());
-      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2597,11 +4595,6 @@ public final class ClientNamenodeProtocolProtos {
       cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto other = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto) obj;
 
       boolean result = true;
-      result = result && (hasPath() == other.hasPath());
-      if (hasPath()) {
-        result = result && getPath()
-            .equals(other.getPath());
-      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2613,10 +4606,6 @@ public final class ClientNamenodeProtocolProtos {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasPath()) {
-        hash = (37 * hash) + PATH_FIELD_NUMBER;
-        hash = (53 * hash) + getPath().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2750,12 +4739,6 @@ public final class ClientNamenodeProtocolProtos {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (pathBuilder_ == null) {
-          path_ = null;
-        } else {
-          path_ = null;
-          pathBuilder_ = null;
-        }
         return this;
       }
 
@@ -2782,11 +4765,6 @@ public final class ClientNamenodeProtocolProtos {
       @java.lang.Override
       public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto buildPartial() {
         cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto result = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto(this);
-        if (pathBuilder_ == null) {
-          result.path_ = path_;
-        } else {
-          result.path_ = pathBuilder_.build();
-        }
         onBuilt();
         return result;
       }
@@ -2835,9 +4813,6 @@ public final class ClientNamenodeProtocolProtos {
 
       public Builder mergeFrom(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto other) {
         if (other == cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto.getDefaultInstance()) return this;
-        if (other.hasPath()) {
-          mergePath(other.getPath());
-        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -2865,123 +4840,6 @@ public final class ClientNamenodeProtocolProtos {
           }
         }
         return this;
-      }
-
-      private cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto path_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder> pathBuilder_;
-      /**
-       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-       */
-      public boolean hasPath() {
-        return pathBuilder_ != null || path_ != null;
-      }
-      /**
-       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-       */
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto getPath() {
-        if (pathBuilder_ == null) {
-          return path_ == null ? cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.getDefaultInstance() : path_;
-        } else {
-          return pathBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-       */
-      public Builder setPath(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto value) {
-        if (pathBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          path_ = value;
-          onChanged();
-        } else {
-          pathBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-       */
-      public Builder setPath(
-          cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder builderForValue) {
-        if (pathBuilder_ == null) {
-          path_ = builderForValue.build();
-          onChanged();
-        } else {
-          pathBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-       */
-      public Builder mergePath(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto value) {
-        if (pathBuilder_ == null) {
-          if (path_ != null) {
-            path_ =
-              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.newBuilder(path_).mergeFrom(value).buildPartial();
-          } else {
-            path_ = value;
-          }
-          onChanged();
-        } else {
-          pathBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-       */
-      public Builder clearPath() {
-        if (pathBuilder_ == null) {
-          path_ = null;
-          onChanged();
-        } else {
-          path_ = null;
-          pathBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-       */
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder getPathBuilder() {
-        
-        onChanged();
-        return getPathFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-       */
-      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
-        if (pathBuilder_ != null) {
-          return pathBuilder_.getMessageOrBuilder();
-        } else {
-          return path_ == null ?
-              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.getDefaultInstance() : path_;
-        }
-      }
-      /**
-       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder> 
-          getPathFieldBuilder() {
-        if (pathBuilder_ == null) {
-          pathBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PathProtoOrBuilder>(
-                  getPath(),
-                  getParentForChildren(),
-                  isClean());
-          path_ = null;
-        }
-        return pathBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -3036,11 +4894,4107 @@ public final class ClientNamenodeProtocolProtos {
 
   }
 
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PathProto_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PathProto_fieldAccessorTable;
+  public interface GetRequestProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.GetRequestProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    boolean hasPath();
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath();
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder();
+  }
+  /**
+   * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.GetRequestProto}
+   */
+  public  static final class GetRequestProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cn.edu.cn.tsinghua.hdfs.protocol.GetRequestProto)
+      GetRequestProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetRequestProto.newBuilder() to construct.
+    private GetRequestProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetRequestProto() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetRequestProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder subBuilder = null;
+              if (path_ != null) {
+                subBuilder = path_.toBuilder();
+              }
+              path_ = input.readMessage(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(path_);
+                path_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetRequestProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetRequestProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto.Builder.class);
+    }
+
+    public static final int PATH_FIELD_NUMBER = 1;
+    private cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto path_;
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public boolean hasPath() {
+      return path_ != null;
+    }
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath() {
+      return path_ == null ? cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+    }
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
+      return getPath();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (path_ != null) {
+        output.writeMessage(1, getPath());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (path_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getPath());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto)) {
+        return super.equals(obj);
+      }
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto other = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto) obj;
+
+      boolean result = true;
+      result = result && (hasPath() == other.hasPath());
+      if (hasPath()) {
+        result = result && getPath()
+            .equals(other.getPath());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasPath()) {
+        hash = (37 * hash) + PATH_FIELD_NUMBER;
+        hash = (53 * hash) + getPath().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.GetRequestProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cn.edu.cn.tsinghua.hdfs.protocol.GetRequestProto)
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetRequestProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetRequestProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto.Builder.class);
+      }
+
+      // Construct using cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (pathBuilder_ == null) {
+          path_ = null;
+        } else {
+          path_ = null;
+          pathBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetRequestProto_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto getDefaultInstanceForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto build() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto buildPartial() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto result = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto(this);
+        if (pathBuilder_ == null) {
+          result.path_ = path_;
+        } else {
+          result.path_ = pathBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto) {
+          return mergeFrom((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto other) {
+        if (other == cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto.getDefaultInstance()) return this;
+        if (other.hasPath()) {
+          mergePath(other.getPath());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto path_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> pathBuilder_;
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public boolean hasPath() {
+        return pathBuilder_ != null || path_ != null;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath() {
+        if (pathBuilder_ == null) {
+          return path_ == null ? cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+        } else {
+          return pathBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          path_ = value;
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          path_ = builderForValue.build();
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder mergePath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (path_ != null) {
+            path_ =
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.newBuilder(path_).mergeFrom(value).buildPartial();
+          } else {
+            path_ = value;
+          }
+          onChanged();
+        } else {
+          pathBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder clearPath() {
+        if (pathBuilder_ == null) {
+          path_ = null;
+          onChanged();
+        } else {
+          path_ = null;
+          pathBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder getPathBuilder() {
+        
+        onChanged();
+        return getPathFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
+        if (pathBuilder_ != null) {
+          return pathBuilder_.getMessageOrBuilder();
+        } else {
+          return path_ == null ?
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+        }
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+          getPathFieldBuilder() {
+        if (pathBuilder_ == null) {
+          pathBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder>(
+                  getPath(),
+                  getParentForChildren(),
+                  isClean());
+          path_ = null;
+        }
+        return pathBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cn.edu.cn.tsinghua.hdfs.protocol.GetRequestProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:cn.edu.cn.tsinghua.hdfs.protocol.GetRequestProto)
+    private static final cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto();
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetRequestProto>
+        PARSER = new com.google.protobuf.AbstractParser<GetRequestProto>() {
+      @java.lang.Override
+      public GetRequestProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetRequestProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetRequestProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetRequestProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetResponseProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.GetResponseProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto> 
+        getBlocksList();
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto getBlocks(int index);
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    int getBlocksCount();
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder> 
+        getBlocksOrBuilderList();
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder getBlocksOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.GetResponseProto}
+   */
+  public  static final class GetResponseProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cn.edu.cn.tsinghua.hdfs.protocol.GetResponseProto)
+      GetResponseProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetResponseProto.newBuilder() to construct.
+    private GetResponseProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetResponseProto() {
+      blocks_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetResponseProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                blocks_ = new java.util.ArrayList<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              blocks_.add(
+                  input.readMessage(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          blocks_ = java.util.Collections.unmodifiableList(blocks_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetResponseProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetResponseProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto.Builder.class);
+    }
+
+    public static final int BLOCKS_FIELD_NUMBER = 1;
+    private java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto> blocks_;
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto> getBlocksList() {
+      return blocks_;
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    public java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder> 
+        getBlocksOrBuilderList() {
+      return blocks_;
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    public int getBlocksCount() {
+      return blocks_.size();
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto getBlocks(int index) {
+      return blocks_.get(index);
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder getBlocksOrBuilder(
+        int index) {
+      return blocks_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < blocks_.size(); i++) {
+        output.writeMessage(1, blocks_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < blocks_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, blocks_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto)) {
+        return super.equals(obj);
+      }
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto other = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto) obj;
+
+      boolean result = true;
+      result = result && getBlocksList()
+          .equals(other.getBlocksList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getBlocksCount() > 0) {
+        hash = (37 * hash) + BLOCKS_FIELD_NUMBER;
+        hash = (53 * hash) + getBlocksList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.GetResponseProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cn.edu.cn.tsinghua.hdfs.protocol.GetResponseProto)
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetResponseProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetResponseProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto.Builder.class);
+      }
+
+      // Construct using cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getBlocksFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (blocksBuilder_ == null) {
+          blocks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          blocksBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetResponseProto_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto getDefaultInstanceForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto build() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto buildPartial() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto result = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto(this);
+        int from_bitField0_ = bitField0_;
+        if (blocksBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            blocks_ = java.util.Collections.unmodifiableList(blocks_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.blocks_ = blocks_;
+        } else {
+          result.blocks_ = blocksBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto) {
+          return mergeFrom((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto other) {
+        if (other == cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto.getDefaultInstance()) return this;
+        if (blocksBuilder_ == null) {
+          if (!other.blocks_.isEmpty()) {
+            if (blocks_.isEmpty()) {
+              blocks_ = other.blocks_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureBlocksIsMutable();
+              blocks_.addAll(other.blocks_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.blocks_.isEmpty()) {
+            if (blocksBuilder_.isEmpty()) {
+              blocksBuilder_.dispose();
+              blocksBuilder_ = null;
+              blocks_ = other.blocks_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              blocksBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getBlocksFieldBuilder() : null;
+            } else {
+              blocksBuilder_.addAllMessages(other.blocks_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto> blocks_ =
+        java.util.Collections.emptyList();
+      private void ensureBlocksIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          blocks_ = new java.util.ArrayList<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto>(blocks_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder> blocksBuilder_;
+
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto> getBlocksList() {
+        if (blocksBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(blocks_);
+        } else {
+          return blocksBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public int getBlocksCount() {
+        if (blocksBuilder_ == null) {
+          return blocks_.size();
+        } else {
+          return blocksBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto getBlocks(int index) {
+        if (blocksBuilder_ == null) {
+          return blocks_.get(index);
+        } else {
+          return blocksBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder setBlocks(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto value) {
+        if (blocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlocksIsMutable();
+          blocks_.set(index, value);
+          onChanged();
+        } else {
+          blocksBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder setBlocks(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder builderForValue) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          blocks_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          blocksBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder addBlocks(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto value) {
+        if (blocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlocksIsMutable();
+          blocks_.add(value);
+          onChanged();
+        } else {
+          blocksBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder addBlocks(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto value) {
+        if (blocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlocksIsMutable();
+          blocks_.add(index, value);
+          onChanged();
+        } else {
+          blocksBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder addBlocks(
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder builderForValue) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          blocks_.add(builderForValue.build());
+          onChanged();
+        } else {
+          blocksBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder addBlocks(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder builderForValue) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          blocks_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          blocksBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder addAllBlocks(
+          java.lang.Iterable<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto> values) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, blocks_);
+          onChanged();
+        } else {
+          blocksBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder clearBlocks() {
+        if (blocksBuilder_ == null) {
+          blocks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          blocksBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder removeBlocks(int index) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          blocks_.remove(index);
+          onChanged();
+        } else {
+          blocksBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder getBlocksBuilder(
+          int index) {
+        return getBlocksFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder getBlocksOrBuilder(
+          int index) {
+        if (blocksBuilder_ == null) {
+          return blocks_.get(index);  } else {
+          return blocksBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder> 
+           getBlocksOrBuilderList() {
+        if (blocksBuilder_ != null) {
+          return blocksBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(blocks_);
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder addBlocksBuilder() {
+        return getBlocksFieldBuilder().addBuilder(
+            cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder addBlocksBuilder(
+          int index) {
+        return getBlocksFieldBuilder().addBuilder(
+            index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder> 
+           getBlocksBuilderList() {
+        return getBlocksFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder> 
+          getBlocksFieldBuilder() {
+        if (blocksBuilder_ == null) {
+          blocksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder>(
+                  blocks_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          blocks_ = null;
+        }
+        return blocksBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cn.edu.cn.tsinghua.hdfs.protocol.GetResponseProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:cn.edu.cn.tsinghua.hdfs.protocol.GetResponseProto)
+    private static final cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto();
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetResponseProto>
+        PARSER = new com.google.protobuf.AbstractParser<GetResponseProto>() {
+      @java.lang.Override
+      public GetResponseProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetResponseProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetResponseProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetResponseProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PutRequestProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.PutRequestProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    boolean hasPath();
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath();
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder();
+
+    /**
+     * <code>uint64 length = 2;</code>
+     */
+    long getLength();
+  }
+  /**
+   * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.PutRequestProto}
+   */
+  public  static final class PutRequestProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cn.edu.cn.tsinghua.hdfs.protocol.PutRequestProto)
+      PutRequestProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PutRequestProto.newBuilder() to construct.
+    private PutRequestProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PutRequestProto() {
+      length_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PutRequestProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder subBuilder = null;
+              if (path_ != null) {
+                subBuilder = path_.toBuilder();
+              }
+              path_ = input.readMessage(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(path_);
+                path_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 16: {
+
+              length_ = input.readUInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutRequestProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutRequestProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto.Builder.class);
+    }
+
+    public static final int PATH_FIELD_NUMBER = 1;
+    private cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto path_;
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public boolean hasPath() {
+      return path_ != null;
+    }
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath() {
+      return path_ == null ? cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+    }
+    /**
+     * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
+      return getPath();
+    }
+
+    public static final int LENGTH_FIELD_NUMBER = 2;
+    private long length_;
+    /**
+     * <code>uint64 length = 2;</code>
+     */
+    public long getLength() {
+      return length_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (path_ != null) {
+        output.writeMessage(1, getPath());
+      }
+      if (length_ != 0L) {
+        output.writeUInt64(2, length_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (path_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getPath());
+      }
+      if (length_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, length_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto)) {
+        return super.equals(obj);
+      }
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto other = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto) obj;
+
+      boolean result = true;
+      result = result && (hasPath() == other.hasPath());
+      if (hasPath()) {
+        result = result && getPath()
+            .equals(other.getPath());
+      }
+      result = result && (getLength()
+          == other.getLength());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasPath()) {
+        hash = (37 * hash) + PATH_FIELD_NUMBER;
+        hash = (53 * hash) + getPath().hashCode();
+      }
+      hash = (37 * hash) + LENGTH_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getLength());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.PutRequestProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cn.edu.cn.tsinghua.hdfs.protocol.PutRequestProto)
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutRequestProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutRequestProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto.Builder.class);
+      }
+
+      // Construct using cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (pathBuilder_ == null) {
+          path_ = null;
+        } else {
+          path_ = null;
+          pathBuilder_ = null;
+        }
+        length_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutRequestProto_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto getDefaultInstanceForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto build() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto buildPartial() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto result = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto(this);
+        if (pathBuilder_ == null) {
+          result.path_ = path_;
+        } else {
+          result.path_ = pathBuilder_.build();
+        }
+        result.length_ = length_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto) {
+          return mergeFrom((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto other) {
+        if (other == cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto.getDefaultInstance()) return this;
+        if (other.hasPath()) {
+          mergePath(other.getPath());
+        }
+        if (other.getLength() != 0L) {
+          setLength(other.getLength());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto path_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> pathBuilder_;
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public boolean hasPath() {
+        return pathBuilder_ != null || path_ != null;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath() {
+        if (pathBuilder_ == null) {
+          return path_ == null ? cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+        } else {
+          return pathBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          path_ = value;
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          path_ = builderForValue.build();
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder mergePath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (path_ != null) {
+            path_ =
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.newBuilder(path_).mergeFrom(value).buildPartial();
+          } else {
+            path_ = value;
+          }
+          onChanged();
+        } else {
+          pathBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder clearPath() {
+        if (pathBuilder_ == null) {
+          path_ = null;
+          onChanged();
+        } else {
+          path_ = null;
+          pathBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder getPathBuilder() {
+        
+        onChanged();
+        return getPathFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder() {
+        if (pathBuilder_ != null) {
+          return pathBuilder_.getMessageOrBuilder();
+        } else {
+          return path_ == null ?
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance() : path_;
+        }
+      }
+      /**
+       * <code>.cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+          getPathFieldBuilder() {
+        if (pathBuilder_ == null) {
+          pathBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder>(
+                  getPath(),
+                  getParentForChildren(),
+                  isClean());
+          path_ = null;
+        }
+        return pathBuilder_;
+      }
+
+      private long length_ ;
+      /**
+       * <code>uint64 length = 2;</code>
+       */
+      public long getLength() {
+        return length_;
+      }
+      /**
+       * <code>uint64 length = 2;</code>
+       */
+      public Builder setLength(long value) {
+        
+        length_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>uint64 length = 2;</code>
+       */
+      public Builder clearLength() {
+        
+        length_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cn.edu.cn.tsinghua.hdfs.protocol.PutRequestProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:cn.edu.cn.tsinghua.hdfs.protocol.PutRequestProto)
+    private static final cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto();
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PutRequestProto>
+        PARSER = new com.google.protobuf.AbstractParser<PutRequestProto>() {
+      @java.lang.Override
+      public PutRequestProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PutRequestProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PutRequestProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PutRequestProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface PutResponseProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.PutResponseProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto> 
+        getBlocksList();
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto getBlocks(int index);
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    int getBlocksCount();
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder> 
+        getBlocksOrBuilderList();
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder getBlocksOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.PutResponseProto}
+   */
+  public  static final class PutResponseProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cn.edu.cn.tsinghua.hdfs.protocol.PutResponseProto)
+      PutResponseProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use PutResponseProto.newBuilder() to construct.
+    private PutResponseProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private PutResponseProto() {
+      blocks_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private PutResponseProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                blocks_ = new java.util.ArrayList<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              blocks_.add(
+                  input.readMessage(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          blocks_ = java.util.Collections.unmodifiableList(blocks_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutResponseProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutResponseProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto.Builder.class);
+    }
+
+    public static final int BLOCKS_FIELD_NUMBER = 1;
+    private java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto> blocks_;
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto> getBlocksList() {
+      return blocks_;
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    public java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder> 
+        getBlocksOrBuilderList() {
+      return blocks_;
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    public int getBlocksCount() {
+      return blocks_.size();
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto getBlocks(int index) {
+      return blocks_.get(index);
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder getBlocksOrBuilder(
+        int index) {
+      return blocks_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < blocks_.size(); i++) {
+        output.writeMessage(1, blocks_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < blocks_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, blocks_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto)) {
+        return super.equals(obj);
+      }
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto other = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto) obj;
+
+      boolean result = true;
+      result = result && getBlocksList()
+          .equals(other.getBlocksList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getBlocksCount() > 0) {
+        hash = (37 * hash) + BLOCKS_FIELD_NUMBER;
+        hash = (53 * hash) + getBlocksList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.PutResponseProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cn.edu.cn.tsinghua.hdfs.protocol.PutResponseProto)
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutResponseProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutResponseProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto.Builder.class);
+      }
+
+      // Construct using cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getBlocksFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (blocksBuilder_ == null) {
+          blocks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          blocksBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutResponseProto_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto getDefaultInstanceForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto build() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto buildPartial() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto result = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto(this);
+        int from_bitField0_ = bitField0_;
+        if (blocksBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            blocks_ = java.util.Collections.unmodifiableList(blocks_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.blocks_ = blocks_;
+        } else {
+          result.blocks_ = blocksBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto) {
+          return mergeFrom((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto other) {
+        if (other == cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto.getDefaultInstance()) return this;
+        if (blocksBuilder_ == null) {
+          if (!other.blocks_.isEmpty()) {
+            if (blocks_.isEmpty()) {
+              blocks_ = other.blocks_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureBlocksIsMutable();
+              blocks_.addAll(other.blocks_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.blocks_.isEmpty()) {
+            if (blocksBuilder_.isEmpty()) {
+              blocksBuilder_.dispose();
+              blocksBuilder_ = null;
+              blocks_ = other.blocks_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              blocksBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getBlocksFieldBuilder() : null;
+            } else {
+              blocksBuilder_.addAllMessages(other.blocks_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto> blocks_ =
+        java.util.Collections.emptyList();
+      private void ensureBlocksIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          blocks_ = new java.util.ArrayList<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto>(blocks_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder> blocksBuilder_;
+
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto> getBlocksList() {
+        if (blocksBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(blocks_);
+        } else {
+          return blocksBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public int getBlocksCount() {
+        if (blocksBuilder_ == null) {
+          return blocks_.size();
+        } else {
+          return blocksBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto getBlocks(int index) {
+        if (blocksBuilder_ == null) {
+          return blocks_.get(index);
+        } else {
+          return blocksBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder setBlocks(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto value) {
+        if (blocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlocksIsMutable();
+          blocks_.set(index, value);
+          onChanged();
+        } else {
+          blocksBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder setBlocks(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder builderForValue) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          blocks_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          blocksBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder addBlocks(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto value) {
+        if (blocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlocksIsMutable();
+          blocks_.add(value);
+          onChanged();
+        } else {
+          blocksBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder addBlocks(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto value) {
+        if (blocksBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureBlocksIsMutable();
+          blocks_.add(index, value);
+          onChanged();
+        } else {
+          blocksBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder addBlocks(
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder builderForValue) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          blocks_.add(builderForValue.build());
+          onChanged();
+        } else {
+          blocksBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder addBlocks(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder builderForValue) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          blocks_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          blocksBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder addAllBlocks(
+          java.lang.Iterable<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto> values) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, blocks_);
+          onChanged();
+        } else {
+          blocksBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder clearBlocks() {
+        if (blocksBuilder_ == null) {
+          blocks_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          blocksBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public Builder removeBlocks(int index) {
+        if (blocksBuilder_ == null) {
+          ensureBlocksIsMutable();
+          blocks_.remove(index);
+          onChanged();
+        } else {
+          blocksBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder getBlocksBuilder(
+          int index) {
+        return getBlocksFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder getBlocksOrBuilder(
+          int index) {
+        if (blocksBuilder_ == null) {
+          return blocks_.get(index);  } else {
+          return blocksBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder> 
+           getBlocksOrBuilderList() {
+        if (blocksBuilder_ != null) {
+          return blocksBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(blocks_);
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder addBlocksBuilder() {
+        return getBlocksFieldBuilder().addBuilder(
+            cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder addBlocksBuilder(
+          int index) {
+        return getBlocksFieldBuilder().addBuilder(
+            index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.BlockProto blocks = 1;</code>
+       */
+      public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder> 
+           getBlocksBuilderList() {
+        return getBlocksFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder> 
+          getBlocksFieldBuilder() {
+        if (blocksBuilder_ == null) {
+          blocksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.BlockProtoOrBuilder>(
+                  blocks_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          blocks_ = null;
+        }
+        return blocksBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cn.edu.cn.tsinghua.hdfs.protocol.PutResponseProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:cn.edu.cn.tsinghua.hdfs.protocol.PutResponseProto)
+    private static final cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto();
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<PutResponseProto>
+        PARSER = new com.google.protobuf.AbstractParser<PutResponseProto>() {
+      @java.lang.Override
+      public PutResponseProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new PutResponseProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<PutResponseProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<PutResponseProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RmRequestProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.RmRequestProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> 
+        getPathList();
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath(int index);
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    int getPathCount();
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+        getPathOrBuilderList();
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.RmRequestProto}
+   */
+  public  static final class RmRequestProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cn.edu.cn.tsinghua.hdfs.protocol.RmRequestProto)
+      RmRequestProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RmRequestProto.newBuilder() to construct.
+    private RmRequestProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RmRequestProto() {
+      path_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RmRequestProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                path_ = new java.util.ArrayList<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              path_.add(
+                  input.readMessage(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          path_ = java.util.Collections.unmodifiableList(path_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmRequestProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmRequestProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto.Builder.class);
+    }
+
+    public static final int PATH_FIELD_NUMBER = 1;
+    private java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> path_;
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> getPathList() {
+      return path_;
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+        getPathOrBuilderList() {
+      return path_;
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public int getPathCount() {
+      return path_.size();
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath(int index) {
+      return path_.get(index);
+    }
+    /**
+     * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+     */
+    public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder(
+        int index) {
+      return path_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < path_.size(); i++) {
+        output.writeMessage(1, path_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < path_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, path_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto)) {
+        return super.equals(obj);
+      }
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto other = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto) obj;
+
+      boolean result = true;
+      result = result && getPathList()
+          .equals(other.getPathList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getPathCount() > 0) {
+        hash = (37 * hash) + PATH_FIELD_NUMBER;
+        hash = (53 * hash) + getPathList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.RmRequestProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cn.edu.cn.tsinghua.hdfs.protocol.RmRequestProto)
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmRequestProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmRequestProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto.Builder.class);
+      }
+
+      // Construct using cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getPathFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (pathBuilder_ == null) {
+          path_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          pathBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmRequestProto_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto getDefaultInstanceForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto build() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto buildPartial() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto result = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto(this);
+        int from_bitField0_ = bitField0_;
+        if (pathBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            path_ = java.util.Collections.unmodifiableList(path_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.path_ = path_;
+        } else {
+          result.path_ = pathBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto) {
+          return mergeFrom((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto other) {
+        if (other == cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto.getDefaultInstance()) return this;
+        if (pathBuilder_ == null) {
+          if (!other.path_.isEmpty()) {
+            if (path_.isEmpty()) {
+              path_ = other.path_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensurePathIsMutable();
+              path_.addAll(other.path_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.path_.isEmpty()) {
+            if (pathBuilder_.isEmpty()) {
+              pathBuilder_.dispose();
+              pathBuilder_ = null;
+              path_ = other.path_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              pathBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getPathFieldBuilder() : null;
+            } else {
+              pathBuilder_.addAllMessages(other.path_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> path_ =
+        java.util.Collections.emptyList();
+      private void ensurePathIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          path_ = new java.util.ArrayList<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto>(path_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> pathBuilder_;
+
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> getPathList() {
+        if (pathBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(path_);
+        } else {
+          return pathBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public int getPathCount() {
+        if (pathBuilder_ == null) {
+          return path_.size();
+        } else {
+          return pathBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto getPath(int index) {
+        if (pathBuilder_ == null) {
+          return path_.get(index);
+        } else {
+          return pathBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePathIsMutable();
+          path_.set(index, value);
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder setPath(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          pathBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder addPath(cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePathIsMutable();
+          path_.add(value);
+          onChanged();
+        } else {
+          pathBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder addPath(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto value) {
+        if (pathBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensurePathIsMutable();
+          path_.add(index, value);
+          onChanged();
+        } else {
+          pathBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder addPath(
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.add(builderForValue.build());
+          onChanged();
+        } else {
+          pathBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder addPath(
+          int index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder builderForValue) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          pathBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder addAllPath(
+          java.lang.Iterable<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto> values) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, path_);
+          onChanged();
+        } else {
+          pathBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder clearPath() {
+        if (pathBuilder_ == null) {
+          path_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          pathBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public Builder removePath(int index) {
+        if (pathBuilder_ == null) {
+          ensurePathIsMutable();
+          path_.remove(index);
+          onChanged();
+        } else {
+          pathBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder getPathBuilder(
+          int index) {
+        return getPathFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder getPathOrBuilder(
+          int index) {
+        if (pathBuilder_ == null) {
+          return path_.get(index);  } else {
+          return pathBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public java.util.List<? extends cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+           getPathOrBuilderList() {
+        if (pathBuilder_ != null) {
+          return pathBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(path_);
+        }
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder addPathBuilder() {
+        return getPathFieldBuilder().addBuilder(
+            cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder addPathBuilder(
+          int index) {
+        return getPathFieldBuilder().addBuilder(
+            index, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .cn.edu.cn.tsinghua.hdfs.protocol.PathProto path = 1;</code>
+       */
+      public java.util.List<cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder> 
+           getPathBuilderList() {
+        return getPathFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder> 
+          getPathFieldBuilder() {
+        if (pathBuilder_ == null) {
+          pathBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProto.Builder, cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.PathProtoOrBuilder>(
+                  path_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          path_ = null;
+        }
+        return pathBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cn.edu.cn.tsinghua.hdfs.protocol.RmRequestProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:cn.edu.cn.tsinghua.hdfs.protocol.RmRequestProto)
+    private static final cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto();
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RmRequestProto>
+        PARSER = new com.google.protobuf.AbstractParser<RmRequestProto>() {
+      @java.lang.Override
+      public RmRequestProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RmRequestProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RmRequestProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RmRequestProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface RmResponseProtoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:cn.edu.cn.tsinghua.hdfs.protocol.RmResponseProto)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>bool isSuccessful = 1;</code>
+     */
+    boolean getIsSuccessful();
+  }
+  /**
+   * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.RmResponseProto}
+   */
+  public  static final class RmResponseProto extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:cn.edu.cn.tsinghua.hdfs.protocol.RmResponseProto)
+      RmResponseProtoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use RmResponseProto.newBuilder() to construct.
+    private RmResponseProto(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private RmResponseProto() {
+      isSuccessful_ = false;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private RmResponseProto(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              isSuccessful_ = input.readBool();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmResponseProto_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmResponseProto_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto.Builder.class);
+    }
+
+    public static final int ISSUCCESSFUL_FIELD_NUMBER = 1;
+    private boolean isSuccessful_;
+    /**
+     * <code>bool isSuccessful = 1;</code>
+     */
+    public boolean getIsSuccessful() {
+      return isSuccessful_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (isSuccessful_ != false) {
+        output.writeBool(1, isSuccessful_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (isSuccessful_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, isSuccessful_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto)) {
+        return super.equals(obj);
+      }
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto other = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto) obj;
+
+      boolean result = true;
+      result = result && (getIsSuccessful()
+          == other.getIsSuccessful());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ISSUCCESSFUL_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsSuccessful());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code cn.edu.cn.tsinghua.hdfs.protocol.RmResponseProto}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:cn.edu.cn.tsinghua.hdfs.protocol.RmResponseProto)
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProtoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmResponseProto_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmResponseProto_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto.class, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto.Builder.class);
+      }
+
+      // Construct using cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        isSuccessful_ = false;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmResponseProto_descriptor;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto getDefaultInstanceForType() {
+        return cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto build() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto buildPartial() {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto result = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto(this);
+        result.isSuccessful_ = isSuccessful_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto) {
+          return mergeFrom((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto other) {
+        if (other == cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto.getDefaultInstance()) return this;
+        if (other.getIsSuccessful() != false) {
+          setIsSuccessful(other.getIsSuccessful());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private boolean isSuccessful_ ;
+      /**
+       * <code>bool isSuccessful = 1;</code>
+       */
+      public boolean getIsSuccessful() {
+        return isSuccessful_;
+      }
+      /**
+       * <code>bool isSuccessful = 1;</code>
+       */
+      public Builder setIsSuccessful(boolean value) {
+        
+        isSuccessful_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool isSuccessful = 1;</code>
+       */
+      public Builder clearIsSuccessful() {
+        
+        isSuccessful_ = false;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:cn.edu.cn.tsinghua.hdfs.protocol.RmResponseProto)
+    }
+
+    // @@protoc_insertion_point(class_scope:cn.edu.cn.tsinghua.hdfs.protocol.RmResponseProto)
+    private static final cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto();
+    }
+
+    public static cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<RmResponseProto>
+        PARSER = new com.google.protobuf.AbstractParser<RmResponseProto>() {
+      @java.lang.Override
+      public RmResponseProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new RmResponseProto(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<RmResponseProto> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<RmResponseProto> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_cn_edu_cn_tsinghua_hdfs_protocol_InitRequestProto_descriptor;
   private static final 
@@ -3052,6 +9006,26 @@ public final class ClientNamenodeProtocolProtos {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_cn_edu_cn_tsinghua_hdfs_protocol_InitResponseProto_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdRequestProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdRequestProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdResponseProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdResponseProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsRequestProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsRequestProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsResponseProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsResponseProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_cn_edu_cn_tsinghua_hdfs_protocol_MkdirRequestProto_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -3061,6 +9035,36 @@ public final class ClientNamenodeProtocolProtos {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_cn_edu_cn_tsinghua_hdfs_protocol_MkdirResponseProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetRequestProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetRequestProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetResponseProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetResponseProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutRequestProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutRequestProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutResponseProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutResponseProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmRequestProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmRequestProto_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmResponseProto_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmResponseProto_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3071,23 +9075,54 @@ public final class ClientNamenodeProtocolProtos {
   static {
     java.lang.String[] descriptorData = {
       "\n\034ClientNamenodeProtocol.proto\022 cn.edu.c" +
-      "n.tsinghua.hdfs.protocol\"/\n\tPathProto\022\013\n" +
-      "\003src\030\001 \001(\t\022\025\n\rhasPermission\030\002 \001(\010\"\022\n\020Ini" +
-      "tRequestProto\"N\n\021InitResponseProto\0229\n\004pa" +
-      "th\030\001 \001(\0132+.cn.edu.cn.tsinghua.hdfs.proto" +
-      "col.PathProto\"N\n\021MkdirRequestProto\0229\n\004pa" +
-      "th\030\001 \003(\0132+.cn.edu.cn.tsinghua.hdfs.proto" +
-      "col.PathProto\"O\n\022MkdirResponseProto\0229\n\004p" +
-      "ath\030\001 \001(\0132+.cn.edu.cn.tsinghua.hdfs.prot" +
-      "ocol.PathProto2\375\001\n\026ClientNamenodeProtoco" +
-      "l\022o\n\004init\0222.cn.edu.cn.tsinghua.hdfs.prot" +
-      "ocol.InitRequestProto\0323.cn.edu.cn.tsingh" +
-      "ua.hdfs.protocol.InitResponseProto\022r\n\005mk" +
-      "dir\0223.cn.edu.cn.tsinghua.hdfs.protocol.M" +
-      "kdirRequestProto\0324.cn.edu.cn.tsinghua.hd" +
-      "fs.protocol.MkdirResponseProtoB=\n\035cn.edu" +
-      ".tsinghua.hdfs.protocolB\034ClientNamenodeP" +
-      "rotocolProtosb\006proto3"
+      "n.tsinghua.hdfs.protocol\032\022HdfsProtocol.p" +
+      "roto\"\022\n\020InitRequestProto\"N\n\021InitResponse" +
+      "Proto\0229\n\004path\030\001 \001(\0132+.cn.edu.cn.tsinghua" +
+      ".hdfs.protocol.PathProto\"K\n\016CdRequestPro" +
+      "to\0229\n\004path\030\001 \001(\0132+.cn.edu.cn.tsinghua.hd" +
+      "fs.protocol.PathProto\"b\n\017CdResponseProto" +
+      "\0229\n\004path\030\001 \001(\0132+.cn.edu.cn.tsinghua.hdfs" +
+      ".protocol.PathProto\022\024\n\014isSuccessful\030\002 \001(" +
+      "\010\"K\n\016LsRequestProto\0229\n\004path\030\001 \001(\0132+.cn.e" +
+      "du.cn.tsinghua.hdfs.protocol.PathProto\"L" +
+      "\n\017LsResponseProto\0229\n\004path\030\001 \003(\0132+.cn.edu" +
+      ".cn.tsinghua.hdfs.protocol.PathProto\"N\n\021" +
+      "MkdirRequestProto\0229\n\004path\030\001 \003(\0132+.cn.edu" +
+      ".cn.tsinghua.hdfs.protocol.PathProto\"\024\n\022" +
+      "MkdirResponseProto\"L\n\017GetRequestProto\0229\n" +
+      "\004path\030\001 \001(\0132+.cn.edu.cn.tsinghua.hdfs.pr" +
+      "otocol.PathProto\"P\n\020GetResponseProto\022<\n\006" +
+      "blocks\030\001 \003(\0132,.cn.edu.cn.tsinghua.hdfs.p" +
+      "rotocol.BlockProto\"\\\n\017PutRequestProto\0229\n" +
+      "\004path\030\001 \001(\0132+.cn.edu.cn.tsinghua.hdfs.pr" +
+      "otocol.PathProto\022\016\n\006length\030\002 \001(\004\"P\n\020PutR" +
+      "esponseProto\022<\n\006blocks\030\001 \003(\0132,.cn.edu.cn" +
+      ".tsinghua.hdfs.protocol.BlockProto\"K\n\016Rm" +
+      "RequestProto\0229\n\004path\030\001 \003(\0132+.cn.edu.cn.t" +
+      "singhua.hdfs.protocol.PathProto\"\'\n\017RmRes" +
+      "ponseProto\022\024\n\014isSuccessful\030\001 \001(\0102\232\006\n\026Cli" +
+      "entNamenodeProtocol\022o\n\004init\0222.cn.edu.cn." +
+      "tsinghua.hdfs.protocol.InitRequestProto\032" +
+      "3.cn.edu.cn.tsinghua.hdfs.protocol.InitR" +
+      "esponseProto\022i\n\002cd\0220.cn.edu.cn.tsinghua." +
+      "hdfs.protocol.CdRequestProto\0321.cn.edu.cn" +
+      ".tsinghua.hdfs.protocol.CdResponseProto\022" +
+      "i\n\002ls\0220.cn.edu.cn.tsinghua.hdfs.protocol" +
+      ".LsRequestProto\0321.cn.edu.cn.tsinghua.hdf" +
+      "s.protocol.LsResponseProto\022r\n\005mkdir\0223.cn" +
+      ".edu.cn.tsinghua.hdfs.protocol.MkdirRequ" +
+      "estProto\0324.cn.edu.cn.tsinghua.hdfs.proto" +
+      "col.MkdirResponseProto\022l\n\003get\0221.cn.edu.c" +
+      "n.tsinghua.hdfs.protocol.GetRequestProto" +
+      "\0322.cn.edu.cn.tsinghua.hdfs.protocol.GetR" +
+      "esponseProto\022l\n\003put\0221.cn.edu.cn.tsinghua" +
+      ".hdfs.protocol.PutRequestProto\0322.cn.edu." +
+      "cn.tsinghua.hdfs.protocol.PutResponsePro" +
+      "to\022i\n\002rm\0220.cn.edu.cn.tsinghua.hdfs.proto" +
+      "col.RmRequestProto\0321.cn.edu.cn.tsinghua." +
+      "hdfs.protocol.RmResponseProtoB=\n\035cn.edu." +
+      "tsinghua.hdfs.protocolB\034ClientNamenodePr" +
+      "otocolProtosb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3100,37 +9135,93 @@ public final class ClientNamenodeProtocolProtos {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.getDescriptor(),
         }, assigner);
-    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PathProto_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PathProto_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PathProto_descriptor,
-        new java.lang.String[] { "Src", "HasPermission", });
     internal_static_cn_edu_cn_tsinghua_hdfs_protocol_InitRequestProto_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_cn_edu_cn_tsinghua_hdfs_protocol_InitRequestProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cn_edu_cn_tsinghua_hdfs_protocol_InitRequestProto_descriptor,
         new java.lang.String[] { });
     internal_static_cn_edu_cn_tsinghua_hdfs_protocol_InitResponseProto_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_cn_edu_cn_tsinghua_hdfs_protocol_InitResponseProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cn_edu_cn_tsinghua_hdfs_protocol_InitResponseProto_descriptor,
         new java.lang.String[] { "Path", });
-    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_MkdirRequestProto_descriptor =
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdRequestProto_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdRequestProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdRequestProto_descriptor,
+        new java.lang.String[] { "Path", });
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdResponseProto_descriptor =
       getDescriptor().getMessageTypes().get(3);
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdResponseProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cn_edu_cn_tsinghua_hdfs_protocol_CdResponseProto_descriptor,
+        new java.lang.String[] { "Path", "IsSuccessful", });
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsRequestProto_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsRequestProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsRequestProto_descriptor,
+        new java.lang.String[] { "Path", });
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsResponseProto_descriptor =
+      getDescriptor().getMessageTypes().get(5);
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsResponseProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cn_edu_cn_tsinghua_hdfs_protocol_LsResponseProto_descriptor,
+        new java.lang.String[] { "Path", });
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_MkdirRequestProto_descriptor =
+      getDescriptor().getMessageTypes().get(6);
     internal_static_cn_edu_cn_tsinghua_hdfs_protocol_MkdirRequestProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cn_edu_cn_tsinghua_hdfs_protocol_MkdirRequestProto_descriptor,
         new java.lang.String[] { "Path", });
     internal_static_cn_edu_cn_tsinghua_hdfs_protocol_MkdirResponseProto_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_cn_edu_cn_tsinghua_hdfs_protocol_MkdirResponseProto_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_cn_edu_cn_tsinghua_hdfs_protocol_MkdirResponseProto_descriptor,
+        new java.lang.String[] { });
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetRequestProto_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetRequestProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetRequestProto_descriptor,
         new java.lang.String[] { "Path", });
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetResponseProto_descriptor =
+      getDescriptor().getMessageTypes().get(9);
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetResponseProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cn_edu_cn_tsinghua_hdfs_protocol_GetResponseProto_descriptor,
+        new java.lang.String[] { "Blocks", });
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutRequestProto_descriptor =
+      getDescriptor().getMessageTypes().get(10);
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutRequestProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutRequestProto_descriptor,
+        new java.lang.String[] { "Path", "Length", });
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutResponseProto_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutResponseProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cn_edu_cn_tsinghua_hdfs_protocol_PutResponseProto_descriptor,
+        new java.lang.String[] { "Blocks", });
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmRequestProto_descriptor =
+      getDescriptor().getMessageTypes().get(12);
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmRequestProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmRequestProto_descriptor,
+        new java.lang.String[] { "Path", });
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmResponseProto_descriptor =
+      getDescriptor().getMessageTypes().get(13);
+    internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmResponseProto_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_cn_edu_cn_tsinghua_hdfs_protocol_RmResponseProto_descriptor,
+        new java.lang.String[] { "IsSuccessful", });
+    cn.edu.tsinghua.hdfs.protocol.HdfsProtocolProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -2,6 +2,7 @@ package cn.edu.tsinghua.hdfs.server.namenode;
 
 import cn.edu.tsinghua.hdfs.constant.Constant;
 import cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolImpl;
+import cn.edu.tsinghua.hdfs.protocol.DatanodeNamenodeProtocolImpl;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 
@@ -16,6 +17,7 @@ public class Namenode {
         server = ServerBuilder
                 .forPort(Constant.PORT)
                 .addService(new ClientNamenodeProtocolImpl())
+                .addService(new DatanodeNamenodeProtocolImpl())
                 .build()
                 .start();
 
@@ -44,8 +46,8 @@ public class Namenode {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
-        final Namenode server = new Namenode();
-        server.start();
-        server.blockUntilShutdown();
+        final Namenode namenode = new Namenode();
+        namenode.start();
+        namenode.blockUntilShutdown();
     }
 }

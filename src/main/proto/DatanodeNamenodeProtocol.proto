@@ -7,5 +7,29 @@ syntax = "proto3";
 
 package cn.edu.cn.tsinghua.hdfs.protocol;
 
+import "HdfsProtocol.proto";
+
 option java_package = "cn.edu.tsinghua.hdfs.protocol";
 option java_outer_classname = "DatanodeNamenodeProtocolProtos";
+
+message RegisterRequestProto {
+    IdProto id = 1;
+}
+
+message RegisterResponseProto {
+    bool isSuccessful = 1;
+}
+
+message HeartbeatRequestProto {
+    IdProto id = 1;
+    bool hasRegistered = 2;
+}
+
+message HeartbeatResponseProto {
+    bool isSuccessful = 1;
+}
+
+service DatanodeNamenodeProtocol {
+    rpc register(RegisterRequestProto) returns(RegisterResponseProto);
+    rpc heartbeat(HeartbeatRequestProto) returns(HeartbeatResponseProto);
+}

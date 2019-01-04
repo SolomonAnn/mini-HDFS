@@ -1,0 +1,2 @@
+minihdfs put TEST.txt
+minihdfs get TEST.txt

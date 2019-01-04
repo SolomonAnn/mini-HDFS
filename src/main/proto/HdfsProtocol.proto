@@ -1,0 +1,29 @@
+/**
+ * @author: An
+ * @description: public protocols
+ */
+
+syntax = "proto3";
+
+package cn.edu.cn.tsinghua.hdfs.protocol;
+
+option java_package = "cn.edu.tsinghua.hdfs.protocol";
+option java_outer_classname = "HdfsProtocolProtos";
+
+message PathProto {
+    string src = 1;
+    bool hasPermission = 2;
+}
+
+message IdProto {
+    string ip = 1;
+    uint32 rpcPort = 2; // rpc communication
+    uint32 socketPort = 3; // socket communication
+}
+
+message BlockProto {
+    IdProto id = 1;
+    string src = 2;
+    uint64 offset = 3;
+    uint64 length = 4;
+}

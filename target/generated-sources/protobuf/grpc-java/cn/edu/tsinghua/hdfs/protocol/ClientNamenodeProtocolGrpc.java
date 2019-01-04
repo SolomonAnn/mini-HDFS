@@ -59,6 +59,70 @@ public final class ClientNamenodeProtocolGrpc {
      return getInitMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto,
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto> getCdMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "cd",
+      requestType = cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto.class,
+      responseType = cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto,
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto> getCdMethod() {
+    io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto> getCdMethod;
+    if ((getCdMethod = ClientNamenodeProtocolGrpc.getCdMethod) == null) {
+      synchronized (ClientNamenodeProtocolGrpc.class) {
+        if ((getCdMethod = ClientNamenodeProtocolGrpc.getCdMethod) == null) {
+          ClientNamenodeProtocolGrpc.getCdMethod = getCdMethod = 
+              io.grpc.MethodDescriptor.<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "cn.edu.cn.tsinghua.hdfs.protocol.ClientNamenodeProtocol", "cd"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto.getDefaultInstance()))
+                  .setSchemaDescriptor(new ClientNamenodeProtocolMethodDescriptorSupplier("cd"))
+                  .build();
+          }
+        }
+     }
+     return getCdMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto,
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto> getLsMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "ls",
+      requestType = cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto.class,
+      responseType = cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto,
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto> getLsMethod() {
+    io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto> getLsMethod;
+    if ((getLsMethod = ClientNamenodeProtocolGrpc.getLsMethod) == null) {
+      synchronized (ClientNamenodeProtocolGrpc.class) {
+        if ((getLsMethod = ClientNamenodeProtocolGrpc.getLsMethod) == null) {
+          ClientNamenodeProtocolGrpc.getLsMethod = getLsMethod = 
+              io.grpc.MethodDescriptor.<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "cn.edu.cn.tsinghua.hdfs.protocol.ClientNamenodeProtocol", "ls"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto.getDefaultInstance()))
+                  .setSchemaDescriptor(new ClientNamenodeProtocolMethodDescriptorSupplier("ls"))
+                  .build();
+          }
+        }
+     }
+     return getLsMethod;
+  }
+
   private static volatile io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirRequestProto,
       cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto> getMkdirMethod;
 
@@ -89,6 +153,102 @@ public final class ClientNamenodeProtocolGrpc {
         }
      }
      return getMkdirMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto,
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto> getGetMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "get",
+      requestType = cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto.class,
+      responseType = cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto,
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto> getGetMethod() {
+    io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto> getGetMethod;
+    if ((getGetMethod = ClientNamenodeProtocolGrpc.getGetMethod) == null) {
+      synchronized (ClientNamenodeProtocolGrpc.class) {
+        if ((getGetMethod = ClientNamenodeProtocolGrpc.getGetMethod) == null) {
+          ClientNamenodeProtocolGrpc.getGetMethod = getGetMethod = 
+              io.grpc.MethodDescriptor.<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "cn.edu.cn.tsinghua.hdfs.protocol.ClientNamenodeProtocol", "get"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto.getDefaultInstance()))
+                  .setSchemaDescriptor(new ClientNamenodeProtocolMethodDescriptorSupplier("get"))
+                  .build();
+          }
+        }
+     }
+     return getGetMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto,
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto> getPutMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "put",
+      requestType = cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto.class,
+      responseType = cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto,
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto> getPutMethod() {
+    io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto> getPutMethod;
+    if ((getPutMethod = ClientNamenodeProtocolGrpc.getPutMethod) == null) {
+      synchronized (ClientNamenodeProtocolGrpc.class) {
+        if ((getPutMethod = ClientNamenodeProtocolGrpc.getPutMethod) == null) {
+          ClientNamenodeProtocolGrpc.getPutMethod = getPutMethod = 
+              io.grpc.MethodDescriptor.<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "cn.edu.cn.tsinghua.hdfs.protocol.ClientNamenodeProtocol", "put"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto.getDefaultInstance()))
+                  .setSchemaDescriptor(new ClientNamenodeProtocolMethodDescriptorSupplier("put"))
+                  .build();
+          }
+        }
+     }
+     return getPutMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto,
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto> getRmMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "rm",
+      requestType = cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto.class,
+      responseType = cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto,
+      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto> getRmMethod() {
+    io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto> getRmMethod;
+    if ((getRmMethod = ClientNamenodeProtocolGrpc.getRmMethod) == null) {
+      synchronized (ClientNamenodeProtocolGrpc.class) {
+        if ((getRmMethod = ClientNamenodeProtocolGrpc.getRmMethod) == null) {
+          ClientNamenodeProtocolGrpc.getRmMethod = getRmMethod = 
+              io.grpc.MethodDescriptor.<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(
+                  "cn.edu.cn.tsinghua.hdfs.protocol.ClientNamenodeProtocol", "rm"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto.getDefaultInstance()))
+                  .setSchemaDescriptor(new ClientNamenodeProtocolMethodDescriptorSupplier("rm"))
+                  .build();
+          }
+        }
+     }
+     return getRmMethod;
   }
 
   /**
@@ -127,9 +287,44 @@ public final class ClientNamenodeProtocolGrpc {
 
     /**
      */
+    public void cd(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto request,
+        io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto> responseObserver) {
+      asyncUnimplementedUnaryCall(getCdMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void ls(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto request,
+        io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto> responseObserver) {
+      asyncUnimplementedUnaryCall(getLsMethod(), responseObserver);
+    }
+
+    /**
+     */
     public void mkdir(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirRequestProto request,
         io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto> responseObserver) {
       asyncUnimplementedUnaryCall(getMkdirMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void get(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto request,
+        io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto> responseObserver) {
+      asyncUnimplementedUnaryCall(getGetMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void put(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto request,
+        io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto> responseObserver) {
+      asyncUnimplementedUnaryCall(getPutMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void rm(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto request,
+        io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto> responseObserver) {
+      asyncUnimplementedUnaryCall(getRmMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -142,12 +337,47 @@ public final class ClientNamenodeProtocolGrpc {
                 cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto>(
                   this, METHODID_INIT)))
           .addMethod(
+            getCdMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto,
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto>(
+                  this, METHODID_CD)))
+          .addMethod(
+            getLsMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto,
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto>(
+                  this, METHODID_LS)))
+          .addMethod(
             getMkdirMethod(),
             asyncUnaryCall(
               new MethodHandlers<
                 cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirRequestProto,
                 cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto>(
                   this, METHODID_MKDIR)))
+          .addMethod(
+            getGetMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto,
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto>(
+                  this, METHODID_GET)))
+          .addMethod(
+            getPutMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto,
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto>(
+                  this, METHODID_PUT)))
+          .addMethod(
+            getRmMethod(),
+            asyncUnaryCall(
+              new MethodHandlers<
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto,
+                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto>(
+                  this, METHODID_RM)))
           .build();
     }
   }
@@ -180,10 +410,50 @@ public final class ClientNamenodeProtocolGrpc {
 
     /**
      */
+    public void cd(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto request,
+        io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getCdMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void ls(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto request,
+        io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getLsMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
     public void mkdir(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirRequestProto request,
         io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getMkdirMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void get(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto request,
+        io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getGetMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void put(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto request,
+        io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getPutMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void rm(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto request,
+        io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto> responseObserver) {
+      asyncUnaryCall(
+          getChannel().newCall(getRmMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -214,9 +484,44 @@ public final class ClientNamenodeProtocolGrpc {
 
     /**
      */
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto cd(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto request) {
+      return blockingUnaryCall(
+          getChannel(), getCdMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto ls(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto request) {
+      return blockingUnaryCall(
+          getChannel(), getLsMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
     public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto mkdir(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirRequestProto request) {
       return blockingUnaryCall(
           getChannel(), getMkdirMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto get(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto request) {
+      return blockingUnaryCall(
+          getChannel(), getGetMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto put(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto request) {
+      return blockingUnaryCall(
+          getChannel(), getPutMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto rm(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto request) {
+      return blockingUnaryCall(
+          getChannel(), getRmMethod(), getCallOptions(), request);
     }
   }
 
@@ -248,15 +553,60 @@ public final class ClientNamenodeProtocolGrpc {
 
     /**
      */
+    public com.google.common.util.concurrent.ListenableFuture<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto> cd(
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto request) {
+      return futureUnaryCall(
+          getChannel().newCall(getCdMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto> ls(
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto request) {
+      return futureUnaryCall(
+          getChannel().newCall(getLsMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
     public com.google.common.util.concurrent.ListenableFuture<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto> mkdir(
         cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirRequestProto request) {
       return futureUnaryCall(
           getChannel().newCall(getMkdirMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto> get(
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto request) {
+      return futureUnaryCall(
+          getChannel().newCall(getGetMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto> put(
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto request) {
+      return futureUnaryCall(
+          getChannel().newCall(getPutMethod(), getCallOptions()), request);
+    }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto> rm(
+        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto request) {
+      return futureUnaryCall(
+          getChannel().newCall(getRmMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_INIT = 0;
-  private static final int METHODID_MKDIR = 1;
+  private static final int METHODID_CD = 1;
+  private static final int METHODID_LS = 2;
+  private static final int METHODID_MKDIR = 3;
+  private static final int METHODID_GET = 4;
+  private static final int METHODID_PUT = 5;
+  private static final int METHODID_RM = 6;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -279,9 +629,29 @@ public final class ClientNamenodeProtocolGrpc {
           serviceImpl.init((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto) request,
               (io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto>) responseObserver);
           break;
+        case METHODID_CD:
+          serviceImpl.cd((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto) request,
+              (io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto>) responseObserver);
+          break;
+        case METHODID_LS:
+          serviceImpl.ls((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsRequestProto) request,
+              (io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.LsResponseProto>) responseObserver);
+          break;
         case METHODID_MKDIR:
           serviceImpl.mkdir((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirRequestProto) request,
               (io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.MkdirResponseProto>) responseObserver);
+          break;
+        case METHODID_GET:
+          serviceImpl.get((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetRequestProto) request,
+              (io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.GetResponseProto>) responseObserver);
+          break;
+        case METHODID_PUT:
+          serviceImpl.put((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutRequestProto) request,
+              (io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.PutResponseProto>) responseObserver);
+          break;
+        case METHODID_RM:
+          serviceImpl.rm((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmRequestProto) request,
+              (io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.RmResponseProto>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -345,7 +715,12 @@ public final class ClientNamenodeProtocolGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ClientNamenodeProtocolFileDescriptorSupplier())
               .addMethod(getInitMethod())
+              .addMethod(getCdMethod())
+              .addMethod(getLsMethod())
               .addMethod(getMkdirMethod())
+              .addMethod(getGetMethod())
+              .addMethod(getPutMethod())
+              .addMethod(getRmMethod())
               .build();
         }
       }

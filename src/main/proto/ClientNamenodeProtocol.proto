@@ -10,16 +10,7 @@ package cn.edu.cn.tsinghua.hdfs.protocol;
 option java_package = "cn.edu.tsinghua.hdfs.protocol";
 option java_outer_classname = "ClientNamenodeProtocolProtos";
 
-//message GetBlockLocationsRequestProto {
-//    string src = 1;     // file name
-//    uint64 offset = 2;  // range start offset
-//    uint64 length = 3;  // range length
-//}
-
-message PathProto {
-    string src = 1;
-    bool hasPermission = 2;
-}
+import "HdfsProtocol.proto";
 
 message InitRequestProto {
 }
@@ -28,15 +19,61 @@ message InitResponseProto {
     PathProto path = 1;
 }
 
+message CdRequestProto {
+    PathProto path = 1;
+}
+
+message CdResponseProto {
+    PathProto path = 1;
+    bool isSuccessful = 2;
+}
+
+message LsRequestProto {
+    PathProto path = 1;
+}
+
+message LsResponseProto {
+    repeated PathProto path = 1;
+}
+
 message MkdirRequestProto {
     repeated PathProto path = 1;
 }
 
 message MkdirResponseProto {
+}
+
+message GetRequestProto {
     PathProto path = 1;
+}
+
+message GetResponseProto {
+    repeated BlockProto blocks = 1;
+}
+
+message PutRequestProto {
+    PathProto path = 1;
+    uint64 length = 2;
+}
+
+message PutResponseProto {
+    repeated BlockProto blocks = 1;
+}
+
+message RmRequestProto {
+    repeated PathProto path = 1;
+}
+
+message RmResponseProto {
+    bool isSuccessful = 1;
 }
 
 service ClientNamenodeProtocol {
     rpc init(InitRequestProto) returns(InitResponseProto);
+    rpc cd(CdRequestProto) returns(CdResponseProto);
+    rpc ls(LsRequestProto) returns(LsResponseProto);
     rpc mkdir(MkdirRequestProto) returns(MkdirResponseProto);
+    rpc get(GetRequestProto) returns(GetResponseProto);
+    rpc put(PutRequestProto) returns(PutResponseProto);
+    rpc rm(RmRequestProto) returns(RmResponseProto);
 }
