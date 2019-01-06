@@ -8,14 +8,24 @@ import io.grpc.ServerBuilder;
 
 import java.io.IOException;
 
+/**
+ * @author: An
+ * @description: Namenode
+ */
+
 public class Namenode {
     private Server server;
 
-    private void start() throws IOException {
+    private void start(String[] args) throws IOException {
+        Constant.NAMENODE_IP = args[0];
+        Constant.NAMENODE_PATH = args[1];
+        Constant.RPC_PORT = Integer.valueOf(args[2]);
+        Constant.REPLICATION_FACTOR = Integer.valueOf(args[3]);
+
         System.out.println(Constant.NAMENODE_GREETING);
 
         server = ServerBuilder
-                .forPort(Constant.PORT)
+                .forPort(Constant.RPC_PORT)
                 .addService(new ClientNamenodeProtocolImpl())
                 .addService(new DatanodeNamenodeProtocolImpl())
                 .build()
@@ -47,7 +57,7 @@ public class Namenode {
 
     public static void main(String[] args) throws IOException, InterruptedException {
         final Namenode namenode = new Namenode();
-        namenode.start();
+        namenode.start(args);
         namenode.blockUntilShutdown();
     }
 }

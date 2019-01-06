@@ -27,38 +27,6 @@ public final class ClientNamenodeProtocolGrpc {
   public static final String SERVICE_NAME = "cn.edu.cn.tsinghua.hdfs.protocol.ClientNamenodeProtocol";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto,
-      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto> getInitMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "init",
-      requestType = cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto.class,
-      responseType = cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto,
-      cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto> getInitMethod() {
-    io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto> getInitMethod;
-    if ((getInitMethod = ClientNamenodeProtocolGrpc.getInitMethod) == null) {
-      synchronized (ClientNamenodeProtocolGrpc.class) {
-        if ((getInitMethod = ClientNamenodeProtocolGrpc.getInitMethod) == null) {
-          ClientNamenodeProtocolGrpc.getInitMethod = getInitMethod = 
-              io.grpc.MethodDescriptor.<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto, cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(
-                  "cn.edu.cn.tsinghua.hdfs.protocol.ClientNamenodeProtocol", "init"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto.getDefaultInstance()))
-                  .setSchemaDescriptor(new ClientNamenodeProtocolMethodDescriptorSupplier("init"))
-                  .build();
-          }
-        }
-     }
-     return getInitMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto,
       cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto> getCdMethod;
 
@@ -280,13 +248,6 @@ public final class ClientNamenodeProtocolGrpc {
 
     /**
      */
-    public void init(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto request,
-        io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto> responseObserver) {
-      asyncUnimplementedUnaryCall(getInitMethod(), responseObserver);
-    }
-
-    /**
-     */
     public void cd(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto request,
         io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto> responseObserver) {
       asyncUnimplementedUnaryCall(getCdMethod(), responseObserver);
@@ -329,13 +290,6 @@ public final class ClientNamenodeProtocolGrpc {
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
-          .addMethod(
-            getInitMethod(),
-            asyncUnaryCall(
-              new MethodHandlers<
-                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto,
-                cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto>(
-                  this, METHODID_INIT)))
           .addMethod(
             getCdMethod(),
             asyncUnaryCall(
@@ -398,14 +352,6 @@ public final class ClientNamenodeProtocolGrpc {
     protected ClientNamenodeProtocolStub build(io.grpc.Channel channel,
         io.grpc.CallOptions callOptions) {
       return new ClientNamenodeProtocolStub(channel, callOptions);
-    }
-
-    /**
-     */
-    public void init(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto request,
-        io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto> responseObserver) {
-      asyncUnaryCall(
-          getChannel().newCall(getInitMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -477,13 +423,6 @@ public final class ClientNamenodeProtocolGrpc {
 
     /**
      */
-    public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto init(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto request) {
-      return blockingUnaryCall(
-          getChannel(), getInitMethod(), getCallOptions(), request);
-    }
-
-    /**
-     */
     public cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto cd(cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto request) {
       return blockingUnaryCall(
           getChannel(), getCdMethod(), getCallOptions(), request);
@@ -545,14 +484,6 @@ public final class ClientNamenodeProtocolGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto> init(
-        cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto request) {
-      return futureUnaryCall(
-          getChannel().newCall(getInitMethod(), getCallOptions()), request);
-    }
-
-    /**
-     */
     public com.google.common.util.concurrent.ListenableFuture<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto> cd(
         cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto request) {
       return futureUnaryCall(
@@ -600,13 +531,12 @@ public final class ClientNamenodeProtocolGrpc {
     }
   }
 
-  private static final int METHODID_INIT = 0;
-  private static final int METHODID_CD = 1;
-  private static final int METHODID_LS = 2;
-  private static final int METHODID_MKDIR = 3;
-  private static final int METHODID_GET = 4;
-  private static final int METHODID_PUT = 5;
-  private static final int METHODID_RM = 6;
+  private static final int METHODID_CD = 0;
+  private static final int METHODID_LS = 1;
+  private static final int METHODID_MKDIR = 2;
+  private static final int METHODID_GET = 3;
+  private static final int METHODID_PUT = 4;
+  private static final int METHODID_RM = 5;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -625,10 +555,6 @@ public final class ClientNamenodeProtocolGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_INIT:
-          serviceImpl.init((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitRequestProto) request,
-              (io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.InitResponseProto>) responseObserver);
-          break;
         case METHODID_CD:
           serviceImpl.cd((cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdRequestProto) request,
               (io.grpc.stub.StreamObserver<cn.edu.tsinghua.hdfs.protocol.ClientNamenodeProtocolProtos.CdResponseProto>) responseObserver);
@@ -714,7 +640,6 @@ public final class ClientNamenodeProtocolGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ClientNamenodeProtocolFileDescriptorSupplier())
-              .addMethod(getInitMethod())
               .addMethod(getCdMethod())
               .addMethod(getLsMethod())
               .addMethod(getMkdirMethod())

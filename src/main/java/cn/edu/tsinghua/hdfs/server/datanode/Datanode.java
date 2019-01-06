@@ -48,7 +48,7 @@ public class Datanode {
                 .newBuilder()
                 .setId(HdfsProtocolProtos.IdProto
                         .newBuilder()
-                        .setIp(ip)
+                        .setIp(Constant.DATANODE_IP)
                         .setRpcPort(rpcPort)
                         .setSocketPort(socketPort)
                         .build())
@@ -86,10 +86,11 @@ public class Datanode {
     }
 
     public static void main(String[] args) throws Exception {
-        String ip = Constant.IP;
-        int rpcPort = Constant.PORT;
-        int socketPort = 1113;
-        Datanode datanode = new Datanode(ip, rpcPort, socketPort);
+        Constant.DATANODE_IP = args[0];
+        Constant.DATANODE_PATH = args[1];
+        Constant.SOCKET_PORT = Integer.valueOf(args[2]);
+
+        Datanode datanode = new Datanode(Constant.NAMENODE_IP, Constant.RPC_PORT, Constant.SOCKET_PORT);
 
         try {
             datanode.register();
@@ -151,8 +152,6 @@ class Server implements Runnable {
                 ServerHandler.setVariables(datanode, socket);
                 Thread threadUploadServerHandler = new Thread(ServerHandler);
                 threadUploadServerHandler.start();
-
-//                socket.close();
             }
 
         } catch (Exception e) {
@@ -175,47 +174,51 @@ class ServerHandler implements Runnable {
     public void run() {
         try {
             // receive filename
-            InputStream inputStream = socket.getInputStream();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            String filename = bufferedReader.readLine();
+            DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+            DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
 
-            if (filename.startsWith("*")) {
-                filename = filename.substring(1);
-                File file = new File(filename);
-                FileInputStream fileInputStream = new FileInputStream(file);
-                byte[] bytes = new byte[(int)Constant.BLOCK_SIZE];
-                int length = fileInputStream.read(bytes);
-                OutputStream outputStream = socket.getOutputStream();
-                outputStream.write(bytes, 0, length);
+            String op = dataInputStream.readUTF();
+            String filename = dataInputStream.readUTF();
 
-            } else {
+            if (op.equals(Constant.PUT)) {
                 // receive file content
-                File file = new File(filename);
+                File file = new File(Constant.DATANODE_PATH + Constant.DIRECTORY_PREFIX + filename);
                 if (!file.exists()) {
                     file.createNewFile();
                 }
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-                byte[] bytes = new byte[(int)Constant.BLOCK_SIZE];
+                DataOutputStream fileDataOutputStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
 
-                int length = inputStream.read(bytes);
+                byte[] bytes = new byte[Constant.BYTES_SIZE];
+                int length;
 
-                fileOutputStream.write(bytes, 0, length);
+                while ((length = dataInputStream.read(bytes)) != -1) {
+                    fileDataOutputStream.write(bytes, 0, length);
+                    fileDataOutputStream.flush();
+                }
 
-//            byte[] bytes = new byte[Constant.BYTES_SIZE];
-//            int length;
-//
-//            while ((length = inputStream.read(bytes)) != -1) {
-//                fileOutputStream.write(bytes, 0, length);
-//            }
-//            fileOutputStream.close();
+                fileDataOutputStream.close();
+                dataInputStream.close();
+            } else if (op.equals(Constant.GET)){
+                // send file content
+                File file = new File(Constant.DATANODE_PATH + Constant.DIRECTORY_PREFIX + filename);
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+                DataInputStream fileDataInputStream = new DataInputStream(new BufferedInputStream(new FileInputStream(file)));
 
-//            bufferedReader.close();
-//            inputStreamReader.close();
-//            inputStream.close();
+                byte[] bytes = new byte[Constant.BYTES_SIZE];
+                int length;
+
+                while ((length = fileDataInputStream.read(bytes)) != -1) {
+                    dataOutputStream.write(bytes, 0, length);
+                    dataOutputStream.flush();
+                }
+
+                fileDataInputStream.close();
+                dataOutputStream.close();
             }
 
-
+            socket.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }

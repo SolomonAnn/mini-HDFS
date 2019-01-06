@@ -45,20 +45,6 @@ public class DFSClient {
         channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
     }
 
-    public String init() {
-        ClientNamenodeProtocolProtos.InitRequestProto request = ClientNamenodeProtocolProtos.InitRequestProto
-                .newBuilder()
-                .build();
-        ClientNamenodeProtocolProtos.InitResponseProto response;
-        try {
-            response = blockingStub.init(request);
-        } catch (StatusRuntimeException e) {
-            logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
-            return null;
-        }
-        return response.getPath().getSrc();
-    }
-
     public String cd(String currentPath, String path) {
         if (path.contains(" ")) {
             System.out.println(Constant.INVALID_FILENAME_OR_DIRECTORY);
@@ -139,17 +125,13 @@ public class DFSClient {
         return;
     }
 
-    public Map<String, String> get(String currentPath, String path) {
+    public Map<String, String> get(String filename) {
         ClientNamenodeProtocolProtos.GetRequestProto request = ClientNamenodeProtocolProtos.GetRequestProto
                 .newBuilder()
-                .setPath(HdfsProtocolProtos.PathProto
-                        .newBuilder()
-                        .setSrc(currentPath + Constant.DIRECTORY_PREFIX + path)
-                        .setHasPermission(true)
-                        .build())
+                .setSrc(filename)
                 .build();
 
-        Map<String, String> datanodes = new HashMap<String, String> ();
+        Map<String, String> datanodes = new LinkedHashMap<String, String>();
 
         ClientNamenodeProtocolProtos.GetResponseProto response;
         try {
@@ -165,15 +147,15 @@ public class DFSClient {
         return datanodes;
     }
 
-    public List<Map<String, String>> put(String currentPath, String path) {
-        File file = new File(path);
+    public List<Map<String, String>> put(String filename) {
+        File file = new File(filename);
+        if (!file.exists()) {
+            System.out.println(Constant.INVALID_FILENAME_OR_DIRECTORY);
+            return null;
+        }
         ClientNamenodeProtocolProtos.PutRequestProto request = ClientNamenodeProtocolProtos.PutRequestProto
                 .newBuilder()
-                .setPath(HdfsProtocolProtos.PathProto
-                        .newBuilder()
-                        .setSrc(currentPath + Constant.DIRECTORY_PREFIX + path)
-                        .setHasPermission(true)
-                        .build())
+                .setSrc(filename)
                 .setLength(file.length())
                 .build();
 
@@ -225,15 +207,17 @@ public class DFSClient {
     }
 
     public static void main(String[] args) throws Exception {
-        DFSClient client = new DFSClient(Constant.IP, Constant.PORT);
+        DFSClient client = new DFSClient(Constant.NAMENODE_IP, Constant.RPC_PORT);
 
         String command;
         String[] pieces;
         String currentPath;
         List<Map<String, String>> datanodes;
         Map<String, String> slaves;
+        long startTime;
+        long endTime;
 
-        currentPath = client.init();
+        currentPath = Constant.NAMENODE_PATH;
         System.out.println(currentPath + Constant.CMD_SUFFIX);
         try {
             while(scanner.hasNextLine()) {
@@ -251,22 +235,33 @@ public class DFSClient {
                         client.mkdir(currentPath, command.split(" "));
                     } else if (pieces[0].equals(Constant.GET)) {
                         command = command.substring(Constant.GET.length() + 1);
-                        slaves = client.get(currentPath, command);
+                        slaves = client.get(command);
+
+                        startTime = System.currentTimeMillis();
 
                         DownloadClient downloadClient = new DownloadClient();
-                        downloadClient.setVariables(slaves);
+                        downloadClient.setVariables(slaves, command);
                         Thread threadDownloadClient = new Thread(downloadClient);
                         threadDownloadClient.start();
 
-                    }
-                    else if (pieces[0].equals(Constant.PUT)) {
+                        endTime = System.currentTimeMillis();
+
+                        System.out.println("Cost: " + (startTime - endTime) / 1000 + "s");
+
+                    } else if (pieces[0].equals(Constant.PUT)) {
                         command = command.substring(Constant.PUT.length() + 1);
-                        datanodes = client.put(currentPath, command);
+                        datanodes = client.put(command);
+
+                        startTime = System.currentTimeMillis();
 
                         UploadClient uploadClient = new UploadClient();
-                        uploadClient.setVariables(datanodes, currentPath, command);
+                        uploadClient.setVariables(datanodes, command);
                         Thread threadUploadClient = new Thread(uploadClient);
                         threadUploadClient.start();
+
+                        endTime = System.currentTimeMillis();
+
+                        System.out.println("Cost: " + (startTime - endTime) / 1000 + "s");
 
                     } else if (pieces[0].equals(Constant.RM)) {
                         command = command.substring(Constant.RM.length() + 1);
@@ -284,85 +279,15 @@ public class DFSClient {
     }
 }
 
-class UploadClient implements Runnable {
-
-    private List<Map<String, String>> datanodes;
-
-    private String path;
-
-    public void setVariables (List<Map<String, String>> datanodes, String currentPath, String path) {
-        this.datanodes = datanodes;
-        this.path = currentPath + Constant.DIRECTORY_PREFIX + path;
-    }
-
-    public void run() {
-        try {
-            for (Map<String, String> datanode : datanodes) {
-                Socket socket = new Socket(datanode.get("Ip"), Integer.valueOf(datanode.get("SocketPort")));
-
-                // send filename
-                OutputStream outputStream = socket.getOutputStream();
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
-                BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
-                String filename = datanode.get("Filename");
-
-                bufferedWriter.write(filename + "\n");
-                bufferedWriter.flush();
-
-//                bufferedWriter.close();
-//                outputStreamWriter.close();
-
-                // send file content
-                long offset = Long.valueOf(datanode.get("Offset"));
-                long length = Long.valueOf(datanode.get("Length"));
-                long currOffset = 0L;
-                int tmpLength;
-                File file = new File(path);
-                FileInputStream fileInputStream = new FileInputStream(file);
-//                byte[] bytes = new byte[Constant.BYTES_SIZE];
-                byte[] bytes = new byte[(int)length];
-                byte[] tmpBytes;
-                if (offset != 0) {
-                    tmpBytes = new byte[(int)offset];
-                    fileInputStream.read(tmpBytes);
-                }
-
-                fileInputStream.read(bytes);
-                outputStream.write(bytes);
-
-//                while ((tmpLength = fileInputStream.read(bytes)) != -1) {
-//                    if (currOffset + tmpLength < offset) {
-//                        currOffset += tmpLength;
-//                    } else if (currOffset < offset) {
-//                        outputStream.write(bytes, (int)(offset - currOffset), Math.min((int)(currOffset + tmpLength - offset), tmpLength));
-//                        currOffset += tmpLength;
-//                    } else if (currOffset + tmpLength < offset + length) {
-//                        outputStream.write(bytes, 0, tmpLength);
-//                        currOffset += tmpLength;
-//                    } else if (currOffset < offset + length) {
-//                        outputStream.write(bytes, 0, Math.min((int)(currOffset + tmpLength - offset - length), tmpLength));
-//                        currOffset += tmpLength;
-//                    } else {
-//                        break;
-//                    }
-//                }
-
-//                fileInputStream.close();
-//                outputStream.close();
-//                socket.close();
-            }
-        } catch (Exception e) {
-            System.err.println(e.getClass().getName() + ": " + e.getMessage());
-        }
-    }
-}
-
 class DownloadClient implements Runnable {
 
     private Map<String, String> slaves;
 
-    public void setVariables (Map<String, String> slaves) {
+    private String filename;
+
+    public void setVariables (Map<String, String> slaves, String filename) {
         this.slaves = slaves;
+        this.filename = filename;
     }
 
     public void run() {
@@ -372,60 +297,106 @@ class DownloadClient implements Runnable {
 
             entries = slaves.entrySet().iterator();
 
-            String path = "TEST.txt";
-            File file = new File(path);
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
             while (entries.hasNext()) {
                 entry = entries.next();
 
-                String filename = entry.getKey();
+                String src = entry.getKey();
                 String ip = entry.getValue().split(" ")[0];
                 int socketPort = Integer.valueOf(entry.getValue().split(" ")[1]);
 
+                File file = new File(filename);
+                if (!file.exists()) {
+                    file.createNewFile();
+                }
+
                 Socket socket = new Socket(ip, socketPort);
 
+                DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+                DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
+                DataOutputStream fileDataOutputStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(file, true)));
+
+                // send 'get'
+                dataOutputStream.writeUTF(Constant.GET);
+                dataOutputStream.flush();
+
                 // send filename
-                OutputStream outputStream = socket.getOutputStream();
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream);
-                BufferedWriter bufferedWriter = new BufferedWriter(outputStreamWriter);
-
-                bufferedWriter.write("*" + filename + "\n");
-                bufferedWriter.flush();
-
-//                bufferedWriter.close();
-//                outputStreamWriter.close();
+                dataOutputStream.writeUTF(src);
+                dataOutputStream.flush();
 
                 // receive file content
-                FileOutputStream fileOutputStream = new FileOutputStream(file, true);
-//                byte[] bytes = new byte[Constant.BYTES_SIZE];
-                byte[] bytes = new byte[(int)Constant.BLOCK_SIZE];
-                InputStream inputStream = socket.getInputStream();
-                int length = inputStream.read(bytes);
-                fileOutputStream.write(bytes, 0, length);
+                byte[] bytes = new byte[Constant.BYTES_SIZE];
+                int length;
 
-//                while ((tmpLength = fileInputStream.read(bytes)) != -1) {
-//                    if (currOffset + tmpLength < offset) {
-//                        currOffset += tmpLength;
-//                    } else if (currOffset < offset) {
-//                        outputStream.write(bytes, (int)(offset - currOffset), Math.min((int)(currOffset + tmpLength - offset), tmpLength));
-//                        currOffset += tmpLength;
-//                    } else if (currOffset + tmpLength < offset + length) {
-//                        outputStream.write(bytes, 0, tmpLength);
-//                        currOffset += tmpLength;
-//                    } else if (currOffset < offset + length) {
-//                        outputStream.write(bytes, 0, Math.min((int)(currOffset + tmpLength - offset - length), tmpLength));
-//                        currOffset += tmpLength;
-//                    } else {
-//                        break;
-//                    }
-//                }
+                while ((length = dataInputStream.read(bytes)) != -1) {
+                    fileDataOutputStream.write(bytes, 0, length);
+                    fileDataOutputStream.flush();
+                }
 
-//                fileInputStream.close();
-//                outputStream.close();
-//                socket.close();
+                dataOutputStream.close();
+                fileDataOutputStream.close();
+                dataInputStream.close();
+                socket.close();
+            }
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+    }
+}
+
+class UploadClient implements Runnable {
+
+    private List<Map<String, String>> datanodes;
+
+    private String filename;
+
+    public void setVariables (List<Map<String, String>> datanodes, String filename) {
+        this.datanodes = datanodes;
+        this.filename = filename;
+    }
+
+    public void run() {
+        try {
+            for (Map<String, String> datanode : datanodes) {
+                Socket socket = new Socket(datanode.get("Ip"), Integer.valueOf(datanode.get("SocketPort")));
+
+                File file = new File(filename);
+                DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+                DataInputStream fileDataInputStream = new DataInputStream(new BufferedInputStream(new FileInputStream(file)));
+
+                // send 'put'
+                dataOutputStream.writeUTF(Constant.PUT);
+                dataOutputStream.flush();
+
+                // send filename
+                String src = datanode.get("Filename");
+                dataOutputStream.writeUTF(src);
+                dataOutputStream.flush();
+
+                // send file content
+                long offset = Long.valueOf(datanode.get("Offset"));
+                long length = Long.valueOf(datanode.get("Length"));
+                long currOffset = 0L;
+                int tmpLength;
+                byte[] bytes = new byte[Constant.BYTES_SIZE];
+
+                while ((tmpLength = fileDataInputStream.read(bytes)) != -1) {
+                    if (currOffset + tmpLength < offset) {
+                    } else if (currOffset < offset) {
+                        dataOutputStream.write(bytes, (int)(offset - currOffset), Math.min((int)(currOffset + tmpLength - offset), tmpLength));
+                    } else if (currOffset + tmpLength < offset + length) {
+                        dataOutputStream.write(bytes, 0, tmpLength);
+                    } else if (currOffset < offset + length) {
+                        dataOutputStream.write(bytes, 0, Math.min((int)(offset + length - currOffset), tmpLength));
+                    } else {
+                        break;
+                    }
+                    currOffset += tmpLength;
+                    dataOutputStream.flush();
+                }
+
+                dataOutputStream.close();
+                fileDataInputStream.close();
+                socket.close();
             }
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());

@@ -14,30 +14,9 @@ import java.util.*;
 
 public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.ClientNamenodeProtocolImplBase {
 
-    // active datanodes
-    private List<String> datanodes = new LinkedList<String>();
-
-    // memories used by each datanode
-    private Map<String, Long> memories = new HashMap<String, Long>();
-
-    @Override
-    public void init(ClientNamenodeProtocolProtos.InitRequestProto request, StreamObserver<ClientNamenodeProtocolProtos.InitResponseProto> responseObserver) {
-        ClientNamenodeProtocolProtos.InitResponseProto response = ClientNamenodeProtocolProtos.InitResponseProto
-                .newBuilder()
-                .setPath(HdfsProtocolProtos.PathProto
-                        .newBuilder()
-                        .setSrc(System.getProperty("user.dir"))
-                        .setHasPermission(true)
-                        .build())
-                .build();
-
-        responseObserver.onNext(response);
-        responseObserver.onCompleted();
-    }
-
     @Override
     public void cd(ClientNamenodeProtocolProtos.CdRequestProto request, StreamObserver<ClientNamenodeProtocolProtos.CdResponseProto> responseObserver) {
-        String basePath = System.getProperty("user.dir");
+        String basePath = Constant.NAMENODE_PATH;
         String path = request.getPath().getSrc();
         File file = new File(path);
         Boolean isSuccessful = true;
@@ -79,6 +58,28 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
                     .setHasPermission(true)
                     .build());
         }
+
+        try {
+            File filesList = new File(Constant.DATANODE_PATH + Constant.DIRECTORY_PREFIX + Constant.FILESLIST);
+            if (!filesList.exists()) {
+                filesList.createNewFile();
+            }
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(filesList));
+            String filename;
+
+            while ((filename = bufferedReader.readLine()) != null) {
+                response.addPath(HdfsProtocolProtos.PathProto
+                        .newBuilder()
+                        .setSrc(filename)
+                        .setHasPermission(true)
+                        .build());
+            }
+
+            bufferedReader.close();
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        }
+
         responseObserver.onNext(response.build());
         responseObserver.onCompleted();
     }
@@ -109,38 +110,42 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
         ClientNamenodeProtocolProtos.GetResponseProto.Builder response = ClientNamenodeProtocolProtos.GetResponseProto
                 .newBuilder();
 
-        FileReader fileReader;
         BufferedReader bufferedReader;
-        String value;
-        Map<String, String> infos = new HashMap<String, String>();
+
+        String strLine;
+
+        String filename = StringUtils.substringBefore(request.getSrc(), ".");
+
+        // (filename, ip + socketPort)
+        Map<String, String> infos = new LinkedHashMap<String, String>();
         Iterator<Map.Entry<String, String>> entries;
         Map.Entry<String, String> entry;
-        boolean isLast = false;
+        List<String> pickedBlocks = new ArrayList<String>();
 
         try {
-            File fsImage = new File(Constant.FSIMAGE);
+            File fsImage = new File(Constant.DATANODE_PATH + Constant.DIRECTORY_PREFIX + Constant.FSIMAGE);
             if (!fsImage.exists()) {
                 fsImage.createNewFile();
             }
 
-            fileReader = new FileReader(fsImage);
-            bufferedReader = new BufferedReader(fileReader);
+            bufferedReader = new BufferedReader(new FileReader(fsImage));
 
-            while ((value = bufferedReader.readLine()) != null) {
-                infos.put(value.split(Constant.BLOCK_SPACE)[1], value.split(Constant.BLOCK_SPACE)[0].split(" ")[0] + " " + value.split(Constant.BLOCK_SPACE)[0].split(" ")[2]);
+            while ((strLine = bufferedReader.readLine()) != null) {
+                infos.put(strLine.split(Constant.BLOCK_SPACE)[1], strLine.split(Constant.BLOCK_SPACE)[0].split(" ")[0] + " " + strLine.split(Constant.BLOCK_SPACE)[0].split(" ")[2]);
             }
 
             entries = infos.entrySet().iterator();
 
+            // pick blocks
             while (entries.hasNext()) {
                 entry = entries.next();
-                if (StringUtils.substringAfter(entry.getKey(),"_").startsWith("0_")) {
-                    if (!isLast) {
-                        isLast = true;
-                    } else {
-                        break;
-                    }
+                if (!StringUtils.substringBefore(entry.getKey(), "_").equals(filename)) {
+                    continue;
                 }
+                if (pickedBlocks.contains(entry.getKey())) {
+                    continue;
+                }
+
                 response.addBlocks(HdfsProtocolProtos.BlockProto
                         .newBuilder()
                         .setId(HdfsProtocolProtos.IdProto
@@ -150,10 +155,11 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
                                 .build())
                         .setSrc(entry.getKey())
                         .build());
+
+                pickedBlocks.add(entry.getKey());
             }
 
             bufferedReader.close();
-            fileReader.close();
         } catch (Exception e){
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
@@ -167,14 +173,18 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
         ClientNamenodeProtocolProtos.PutResponseProto.Builder response = ClientNamenodeProtocolProtos.PutResponseProto
                 .newBuilder();
 
-        FileReader fileReader;
+        // active datanodes (ip + rpcPort + socketPort)
+        List<String> datanodes = new LinkedList<String>();
+        // memories used by each datanode (datanode, memory)
+        Map<String, Long> memories = new HashMap<String, Long>();
+
         BufferedReader bufferedReader;
-        FileWriter fileWriter;
         BufferedWriter bufferedWriter;
 
-        String value;
+        String strLine;
+
         String[] info;
-        String path;
+        String filename;
 
         String tmpDatanode;
         long tmpMemory;
@@ -188,16 +198,15 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
 
         // get datanodes
         try {
-            File slaveList = new File(Constant.SLAVESLIST);
-            if (!slaveList.exists()) {
-                slaveList.createNewFile();
+            File slavesList = new File(Constant.DATANODE_PATH + Constant.DIRECTORY_PREFIX + Constant.SLAVESLIST);
+            if (!slavesList.exists()) {
+                slavesList.createNewFile();
             }
+            bufferedReader = new BufferedReader(new FileReader(slavesList));
 
-            fileReader = new FileReader(slaveList);
-            bufferedReader = new BufferedReader(fileReader);
-
-            while ((value = bufferedReader.readLine()) != null) {
-                datanodes.add(value);
+            // read from SlavesList
+            while ((strLine = bufferedReader.readLine()) != null) {
+                datanodes.add(strLine);
             }
 
             // initial memories
@@ -206,12 +215,11 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
             }
 
             bufferedReader.close();
-            fileReader.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         }
 
-        // the number of datanodes
+        // the number of slaves
         int slavesCount = datanodes.size();
         // the number of blocks
         int blockCount = (int)(Math.ceil((float)request.getLength() / (float)Constant.BLOCK_SIZE));
@@ -219,25 +227,23 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
         int replicationCount = Math.min(Constant.REPLICATION_FACTOR, slavesCount);
 
         try {
-            File fsImage = new File(Constant.FSIMAGE);
+            File fsImage = new File(Constant.DATANODE_PATH + Constant.DIRECTORY_PREFIX + Constant.FSIMAGE);
             if (!fsImage.exists()) {
                 fsImage.createNewFile();
             }
 
-            fileReader = new FileReader(fsImage);
-            bufferedReader = new BufferedReader(fileReader);
+            bufferedReader = new BufferedReader(new FileReader(fsImage));
 
-            while ((value = bufferedReader.readLine()) != null) {
+            while ((strLine = bufferedReader.readLine()) != null) {
                 // calculate memories used by each datanode
-                info = value.split(Constant.BLOCK_SPACE);
+                info = strLine.split(Constant.BLOCK_SPACE);
                 tmpMemory = memories.get(info[0]) + Long.valueOf(info[3]);
                 memories.put(info[0], tmpMemory);
             }
 
             bufferedReader.close();
-            fileReader.close();
 
-            fileWriter = new FileWriter(fsImage, true);
+            bufferedWriter = new BufferedWriter(new FileWriter(fsImage, true));
 
             for (int i = 0; i < blockCount; i++) {
                 baseMemory = Long.MAX_VALUE;
@@ -245,7 +251,7 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
                 currDatanode = null;
                 entries = memories.entrySet().iterator();
 
-                // pick top replicationCount datanodes
+                // pick 'replicationCount' datanodes
                 while (entries.hasNext()) {
                     entry = entries.next();
                     tmpDatanode = entry.getKey();
@@ -281,12 +287,13 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
                     }
                     memories.put(tmpDatanode, tmpMemory);
 
-                    path = StringUtils.substringBeforeLast(request.getPath().getSrc(), ".")
+                    // prev filename + block index + socket port + suffix
+                    filename = StringUtils.substringBeforeLast(request.getSrc(), ".")
                             + "_" + i + "_" + info[2] + "."
-                            + StringUtils.substringAfterLast(request.getPath().getSrc(), ".");
+                            + StringUtils.substringAfterLast(request.getSrc(), ".");
 
-                    fileWriter.write(tmpDatanode + Constant.BLOCK_SPACE
-                            + path + Constant.BLOCK_SPACE
+                    bufferedWriter.write(tmpDatanode + Constant.BLOCK_SPACE
+                            + filename + Constant.BLOCK_SPACE
                             + i * Constant.BLOCK_SIZE + Constant.BLOCK_SPACE
                             + (tmpMemory - entry.getValue())
                             + "\r\n");
@@ -296,19 +303,30 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
                             .setId(HdfsProtocolProtos.IdProto
                                     .newBuilder()
                                     .setIp(info[0])
-                                    .setRpcPort(Integer.valueOf(info[1]))
                                     .setSocketPort(Integer.valueOf(info[2]))
                                     .build())
-                            .setSrc(path)
+                            .setSrc(filename)
                             .setOffset(i * Constant.BLOCK_SIZE)
                             .setLength(tmpMemory - entry.getValue())
                             .build());
                 }
             }
 
-            fileWriter.close();
+            bufferedWriter.close();
         } catch (Exception e) {
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
+        } finally {
+            try {
+                File filesList = new File(Constant.DATANODE_PATH + Constant.DIRECTORY_PREFIX + Constant.FILESLIST);
+                if (!filesList.exists()) {
+                    filesList.createNewFile();
+                }
+                bufferedWriter = new BufferedWriter(new FileWriter(filesList, true));
+                bufferedWriter.write(request.getSrc());
+                bufferedWriter.close();
+            } catch (Exception e) {
+                System.err.println(e.getClass().getName() + ": " + e.getMessage());
+            }
         }
 
         responseObserver.onNext(response.build());

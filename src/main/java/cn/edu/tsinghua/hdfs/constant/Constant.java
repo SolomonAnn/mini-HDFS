@@ -6,8 +6,14 @@ package cn.edu.tsinghua.hdfs.constant;
  */
 
 public class Constant {
-    public static final String IP = "127.0.0.1";
-    public static int PORT = 1234;
+    public static String NAMENODE_IP;
+    public static String DATANODE_IP;
+    public static String CLIENT_IP;
+    public static int RPC_PORT;
+    public static int SOCKET_PORT;
+
+    public static String NAMENODE_PATH = System.getProperty("user.dir");
+    public static String DATANODE_PATH = System.getProperty("user.dir");
 
     public static final String CMD_SUFFIX = ">";
     public static final String CMD_IDENTIFIER = "minihdfs";
@@ -29,14 +35,16 @@ public class Constant {
     public static final String PUT = "put";
     public static final String RM = "rm";
 
-//    public static final long BLOCK_SIZE = 128 * 1024 * 1024; // 128MB
-    public static final long BLOCK_SIZE = 50 * 1024L;
-    public static int REPLICATION_FACTOR = 3;
-    public static final long HEARTBEAT = 3000L;
+    public static final long BLOCK_SIZE = 128 * 1024 * 1024; // 128MB
+    public static int REPLICATION_FACTOR;
+    public static final int HEARTBEAT = 3000;
     public static final int BYTES_SIZE = 4096;
 
-    public static final String CURRENT_PATH = System.getProperty("user.dir");
+    // block: datanode + src + offset + length
     public static final String FSIMAGE = "FsImage";
+    // TODO: record some operations
     public static final String EDITSLOG = "EditsLog";
+    // datanode: ip + rpcPort + socketPort
     public static final String SLAVESLIST = "SlavesList";
+    public static final String FILESLIST = "FilesList";
 }
