@@ -16,13 +16,13 @@ To use mini-HDFS, you need to have (the latest version is recommended):
 Create ```namenode``` and ```datanode``` directories to store your relevant files. 
 
 ``` bash
-mkdir namenode/
-mkdir datanode/
+mkdir namenode
+mkdir datanode
 ```
 
 Then fill in  ```config.xml``` with your directories, ips and ports. 
 
-The next step is to enter into ```/bin``` diretory and start ```namenode```, ```datanode``` and ```client``` in different sites.
+The next step is to enter into ```bin``` diretory and start ```namenode```, ```datanode``` and ```client``` in different sites.
 
 ``` bash
 sh namenode.sh
