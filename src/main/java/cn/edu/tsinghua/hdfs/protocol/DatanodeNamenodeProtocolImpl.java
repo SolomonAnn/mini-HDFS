@@ -38,7 +38,7 @@ public class DatanodeNamenodeProtocolImpl extends DatanodeNamenodeProtocolGrpc.D
         }
 
         try {
-            File slaveList = new File(Constant.SLAVESLIST);
+            File slaveList = new File(Constant.NAMENODE_PATH + Constant.DIRECTORY_PREFIX + Constant.SLAVESLIST);
             if (!slaveList.exists()) {
                 slaveList.createNewFile();
             }

@@ -36,7 +36,7 @@ public class Constant {
     public static final String RM = "rm";
 
     public static final long BLOCK_SIZE = 128 * 1024 * 1024; // 128MB
-    public static int REPLICATION_FACTOR;
+    public static int REPLICATION_FACTOR = 3;
     public static final int HEARTBEAT = 3000;
     public static final int BYTES_SIZE = 4096;
 

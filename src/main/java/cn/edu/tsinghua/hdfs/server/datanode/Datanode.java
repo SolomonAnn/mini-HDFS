@@ -86,9 +86,12 @@ public class Datanode {
     }
 
     public static void main(String[] args) throws Exception {
-        Constant.DATANODE_IP = args[0];
-        Constant.DATANODE_PATH = args[1];
-        Constant.SOCKET_PORT = Integer.valueOf(args[2]);
+        Constant.NAMENODE_IP = args[0];
+        Constant.NAMENODE_PATH = args[1];
+        Constant.DATANODE_IP = args[2];
+        Constant.DATANODE_PATH = args[3];
+        Constant.RPC_PORT = Integer.valueOf(args[4]);
+        Constant.SOCKET_PORT = Integer.valueOf(args[5]);
 
         Datanode datanode = new Datanode(Constant.NAMENODE_IP, Constant.RPC_PORT, Constant.SOCKET_PORT);
 
@@ -186,6 +189,7 @@ class ServerHandler implements Runnable {
                 if (!file.exists()) {
                     file.createNewFile();
                 }
+
                 DataOutputStream fileDataOutputStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
 
                 byte[] bytes = new byte[Constant.BYTES_SIZE];

@@ -29,16 +29,12 @@ public class DFSClient {
     private final ManagedChannel channel;
     private final ClientNamenodeProtocolGrpc.ClientNamenodeProtocolBlockingStub blockingStub;
 
-    public DFSClient(String host, int port) {
-        this(ManagedChannelBuilder
-                .forAddress(host, port)
+    public DFSClient(String ip, int rpcPort) {
+        this.channel = ManagedChannelBuilder
+                .forAddress(ip, rpcPort)
                 .usePlaintext()
-                .build());
-    }
-
-    DFSClient(ManagedChannel channel) {
-        this.channel = channel;
-        blockingStub = ClientNamenodeProtocolGrpc.newBlockingStub(channel);
+                .build();
+        this.blockingStub = ClientNamenodeProtocolGrpc.newBlockingStub(channel);
     }
 
     public void shutdown() throws InterruptedException {
@@ -207,6 +203,13 @@ public class DFSClient {
     }
 
     public static void main(String[] args) throws Exception {
+        Constant.NAMENODE_IP = args[0];
+        Constant.NAMENODE_PATH = args[1];
+        Constant.DATANODE_IP = args[2];
+        Constant.DATANODE_PATH = args[3];
+        Constant.RPC_PORT = Integer.valueOf(args[4]);
+        Constant.SOCKET_PORT = Integer.valueOf(args[5]);
+
         DFSClient client = new DFSClient(Constant.NAMENODE_IP, Constant.RPC_PORT);
 
         String command;
@@ -214,8 +217,6 @@ public class DFSClient {
         String currentPath;
         List<Map<String, String>> datanodes;
         Map<String, String> slaves;
-        long startTime;
-        long endTime;
 
         currentPath = Constant.NAMENODE_PATH;
         System.out.println(currentPath + Constant.CMD_SUFFIX);
@@ -237,31 +238,19 @@ public class DFSClient {
                         command = command.substring(Constant.GET.length() + 1);
                         slaves = client.get(command);
 
-                        startTime = System.currentTimeMillis();
-
                         DownloadClient downloadClient = new DownloadClient();
                         downloadClient.setVariables(slaves, command);
                         Thread threadDownloadClient = new Thread(downloadClient);
                         threadDownloadClient.start();
 
-                        endTime = System.currentTimeMillis();
-
-                        System.out.println("Cost: " + (startTime - endTime) / 1000 + "s");
-
                     } else if (pieces[0].equals(Constant.PUT)) {
                         command = command.substring(Constant.PUT.length() + 1);
                         datanodes = client.put(command);
-
-                        startTime = System.currentTimeMillis();
 
                         UploadClient uploadClient = new UploadClient();
                         uploadClient.setVariables(datanodes, command);
                         Thread threadUploadClient = new Thread(uploadClient);
                         threadUploadClient.start();
-
-                        endTime = System.currentTimeMillis();
-
-                        System.out.println("Cost: " + (startTime - endTime) / 1000 + "s");
 
                     } else if (pieces[0].equals(Constant.RM)) {
                         command = command.substring(Constant.RM.length() + 1);

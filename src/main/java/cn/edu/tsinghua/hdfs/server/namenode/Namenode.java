@@ -16,12 +16,7 @@ import java.io.IOException;
 public class Namenode {
     private Server server;
 
-    private void start(String[] args) throws IOException {
-        Constant.NAMENODE_IP = args[0];
-        Constant.NAMENODE_PATH = args[1];
-        Constant.RPC_PORT = Integer.valueOf(args[2]);
-        Constant.REPLICATION_FACTOR = Integer.valueOf(args[3]);
-
+    private void start() throws IOException {
         System.out.println(Constant.NAMENODE_GREETING);
 
         server = ServerBuilder
@@ -56,8 +51,15 @@ public class Namenode {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {
+        Constant.NAMENODE_IP = args[0];
+        Constant.NAMENODE_PATH = args[1];
+        Constant.DATANODE_IP = args[2];
+        Constant.DATANODE_PATH = args[3];
+        Constant.RPC_PORT = Integer.valueOf(args[4]);
+        Constant.SOCKET_PORT = Integer.valueOf(args[5]);
+
         final Namenode namenode = new Namenode();
-        namenode.start(args);
+        namenode.start();
         namenode.blockUntilShutdown();
     }
 }

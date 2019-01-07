@@ -198,7 +198,7 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
 
         // get datanodes
         try {
-            File slavesList = new File(Constant.DATANODE_PATH + Constant.DIRECTORY_PREFIX + Constant.SLAVESLIST);
+            File slavesList = new File(Constant.NAMENODE_PATH + Constant.DIRECTORY_PREFIX + Constant.SLAVESLIST);
             if (!slavesList.exists()) {
                 slavesList.createNewFile();
             }
@@ -227,7 +227,7 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
         int replicationCount = Math.min(Constant.REPLICATION_FACTOR, slavesCount);
 
         try {
-            File fsImage = new File(Constant.DATANODE_PATH + Constant.DIRECTORY_PREFIX + Constant.FSIMAGE);
+            File fsImage = new File(Constant.NAMENODE_PATH + Constant.DIRECTORY_PREFIX + Constant.FSIMAGE);
             if (!fsImage.exists()) {
                 fsImage.createNewFile();
             }
@@ -317,10 +317,11 @@ public class ClientNamenodeProtocolImpl extends ClientNamenodeProtocolGrpc.Clien
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
         } finally {
             try {
-                File filesList = new File(Constant.DATANODE_PATH + Constant.DIRECTORY_PREFIX + Constant.FILESLIST);
+                File filesList = new File(Constant.NAMENODE_PATH + Constant.DIRECTORY_PREFIX + Constant.FILESLIST);
                 if (!filesList.exists()) {
                     filesList.createNewFile();
                 }
+
                 bufferedWriter = new BufferedWriter(new FileWriter(filesList, true));
                 bufferedWriter.write(request.getSrc());
                 bufferedWriter.close();

@@ -1,8 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-namenode_ip = "140.143.17.209"
-namenode_path = "/home/ubuntu/namenode"
-rpc_port = 1234
-replication_factor = 3
+namenode_ip=`grep -o "<namenode_ip>[^<]*</namenode_ip>" config.xml | sed -e "s/<namenode_ip>\(.*\)<\/namenode_ip>/\1/"`
+namenode_path=`grep -o "<namenode_path>[^<]*</namenode_path>" config.xml | sed -e "s/<namenode_path>\(.*\)<\/namenode_path>/\1/"`
+datanode_ip=`grep -o "<datanode_ip>[^<]*</datanode_ip>" config.xml | sed -e "s/<datanode_ip>\(.*\)<\/datanode_ip>/\1/"`
+datanode_path=`grep -o "<datanode_path>[^<]*</datanode_path>" config.xml | sed -e "s/<datanode_path>\(.*\)<\/datanode_path>/\1/"`
+rpc_port=`grep -o "<rpc_port>[^<]*</rpc_port>" config.xml | sed -e "s/<rpc_port>\(.*\)<\/rpc_port>/\1/"`
+socket_port=`grep -o "<socket_port>[^<]*</socket_port>" config.xml | sed -e "s/<socket_port>\(.*\)<\/socket_port>/\1/"`
 
-java -jar root.jar ${namenode_ip} ${namenode_path} ${rpc_port} ${replication_factor}
+java -jar root.jar ${namenode_ip} ${namenode_path} ${datanode_ip} ${datanode_path} ${rpc_port} ${socket_port}
