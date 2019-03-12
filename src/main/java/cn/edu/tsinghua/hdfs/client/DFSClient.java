@@ -8,13 +8,14 @@ import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.StatusRuntimeException;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.net.Socket;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  * @author: An
@@ -22,23 +23,25 @@ import java.util.logging.Logger;
  */
 
 public class DFSClient {
-    private static final Logger logger = Logger.getLogger(Constant.CLIENT_GREETING);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DFSClient.class);
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
-    private final ManagedChannel channel;
-    private final ClientNamenodeProtocolGrpc.ClientNamenodeProtocolBlockingStub blockingStub;
+    private final ManagedChannel managedChannel;
+    private final ClientNamenodeProtocolGrpc.ClientNamenodeProtocolBlockingStub
+        clientNamenodeProtocolBlockingStub;
 
     public DFSClient(String ip, int rpcPort) {
-        this.channel = ManagedChannelBuilder
+        this.managedChannel = ManagedChannelBuilder
                 .forAddress(ip, rpcPort)
                 .usePlaintext()
                 .build();
-        this.blockingStub = ClientNamenodeProtocolGrpc.newBlockingStub(channel);
+        this.clientNamenodeProtocolBlockingStub =
+            ClientNamenodeProtocolGrpc.newBlockingStub(managedChannel);
     }
 
     public void shutdown() throws InterruptedException {
-        channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
+        managedChannel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
     }
 
     public String cd(String currentPath, String path) {
@@ -52,7 +55,8 @@ public class DFSClient {
             path = path.replaceAll(Constant.ILLEGAL_DIRECTORY, "_");
             path = currentPath + Constant.DIRECTORY_PREFIX + path;
         }
-        ClientNamenodeProtocolProtos.CdRequestProto request = ClientNamenodeProtocolProtos.CdRequestProto
+        ClientNamenodeProtocolProtos.CdRequestProto request =
+            ClientNamenodeProtocolProtos.CdRequestProto
                 .newBuilder()
                 .setPath(HdfsProtocolProtos.PathProto
                         .newBuilder()
@@ -61,19 +65,20 @@ public class DFSClient {
                 .build();
         ClientNamenodeProtocolProtos.CdResponseProto response;
         try {
-            response = blockingStub.cd(request);
+            response = clientNamenodeProtocolBlockingStub.cd(request);
             if (response.getIsSuccessful() == false) {
                 System.out.println(Constant.INVALID_FILENAME_OR_DIRECTORY);
             }
         } catch (StatusRuntimeException e) {
-            logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+            LOGGER.warn("RPC failed: {0}", e.getStatus());
             return null;
         }
         return response.getPath().getSrc();
     }
 
     public void ls(String currentPath) {
-        ClientNamenodeProtocolProtos.LsRequestProto request = ClientNamenodeProtocolProtos.LsRequestProto
+        ClientNamenodeProtocolProtos.LsRequestProto request =
+            ClientNamenodeProtocolProtos.LsRequestProto
                 .newBuilder()
                 .setPath(HdfsProtocolProtos.PathProto
                         .newBuilder()
@@ -83,7 +88,7 @@ public class DFSClient {
                 .build();
         ClientNamenodeProtocolProtos.LsResponseProto response;
         try {
-            response = blockingStub.ls(request);
+            response = clientNamenodeProtocolBlockingStub.ls(request);
             int count = response.getPathCount();
             String path;
             for (int i = 0; i < count; i++) {
@@ -91,14 +96,15 @@ public class DFSClient {
                 System.out.println(path);
             }
         } catch (StatusRuntimeException e) {
-            logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+            LOGGER.warn("RPC failed: {0}", e.getStatus());
             return;
         }
         return;
     }
 
     public void mkdir(String currentPath, String[] paths) {
-        ClientNamenodeProtocolProtos.MkdirRequestProto.Builder request = ClientNamenodeProtocolProtos.MkdirRequestProto
+        ClientNamenodeProtocolProtos.MkdirRequestProto.Builder request =
+            ClientNamenodeProtocolProtos.MkdirRequestProto
                 .newBuilder();
         for (String path : paths) {
             if (path.contains(" ")) {
@@ -113,16 +119,17 @@ public class DFSClient {
                     .build());
         }
         try {
-            blockingStub.mkdir(request.build());
+            clientNamenodeProtocolBlockingStub.mkdir(request.build());
         } catch (StatusRuntimeException e) {
-            logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+            LOGGER.warn("RPC failed: {0}", e.getStatus());
             return;
         }
         return;
     }
 
     public Map<String, String> get(String filename) {
-        ClientNamenodeProtocolProtos.GetRequestProto request = ClientNamenodeProtocolProtos.GetRequestProto
+        ClientNamenodeProtocolProtos.GetRequestProto request =
+            ClientNamenodeProtocolProtos.GetRequestProto
                 .newBuilder()
                 .setSrc(filename)
                 .build();
@@ -131,13 +138,15 @@ public class DFSClient {
 
         ClientNamenodeProtocolProtos.GetResponseProto response;
         try {
-            response = blockingStub.get(request);
+            response = clientNamenodeProtocolBlockingStub.get(request);
             int count = response.getBlocksCount();
             for (int i = 0; i < count; i++) {
-                datanodes.put(response.getBlocks(i).getSrc(), response.getBlocks(i).getId().getIp() + " " + response.getBlocks(i).getId().getSocketPort());
+                datanodes.put(response.getBlocks(i).getSrc(),
+                    response.getBlocks(i).getId().getIp() + " "
+                        + response.getBlocks(i).getId().getSocketPort());
             }
         } catch (StatusRuntimeException e) {
-            logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+            LOGGER.warn("RPC failed: {0}", e.getStatus());
             return null;
         }
         return datanodes;
@@ -149,7 +158,8 @@ public class DFSClient {
             System.out.println(Constant.INVALID_FILENAME_OR_DIRECTORY);
             return null;
         }
-        ClientNamenodeProtocolProtos.PutRequestProto request = ClientNamenodeProtocolProtos.PutRequestProto
+        ClientNamenodeProtocolProtos.PutRequestProto request =
+            ClientNamenodeProtocolProtos.PutRequestProto
                 .newBuilder()
                 .setSrc(filename)
                 .setLength(file.length())
@@ -159,12 +169,13 @@ public class DFSClient {
         List<Map<String, String>> datanodes = new ArrayList<Map<String, String>>();
         Map<String, String> datanode;
         try {
-            response = blockingStub.put(request);
+            response = clientNamenodeProtocolBlockingStub.put(request);
             int count = response.getBlocksCount();
             for (int i = 0; i < count; i++) {
                 datanode = new HashMap<String, String>();
                 datanode.put("Ip", response.getBlocks(i).getId().getIp());
-                datanode.put("SocketPort", String.valueOf(response.getBlocks(i).getId().getSocketPort()));
+                datanode.put("SocketPort",
+                    String.valueOf(response.getBlocks(i).getId().getSocketPort()));
                 datanode.put("Filename", response.getBlocks(i).getSrc());
                 datanode.put("Offset", String.valueOf(response.getBlocks(i).getOffset()));
                 datanode.put("Length", String.valueOf(response.getBlocks(i).getLength()));
@@ -172,14 +183,15 @@ public class DFSClient {
                 datanodes.add(datanode);
             }
         } catch (StatusRuntimeException e) {
-            logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+            LOGGER.warn("RPC failed: {0}", e.getStatus());
             return null;
         }
         return datanodes;
     }
 
     public void rm(String currentPath, String[] paths) {
-        ClientNamenodeProtocolProtos.RmRequestProto.Builder request = ClientNamenodeProtocolProtos.RmRequestProto
+        ClientNamenodeProtocolProtos.RmRequestProto.Builder request =
+            ClientNamenodeProtocolProtos.RmRequestProto
                 .newBuilder();
         for (String path : paths) {
             if (path.contains(" ")) {
@@ -194,9 +206,9 @@ public class DFSClient {
                     .build());
         }
         try {
-            blockingStub.rm(request.build());
+            clientNamenodeProtocolBlockingStub.rm(request.build());
         } catch (StatusRuntimeException e) {
-            logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+            LOGGER.warn("RPC failed: {0}", e.getStatus());
             return;
         }
         return;
@@ -221,8 +233,8 @@ public class DFSClient {
         currentPath = Constant.NAMENODE_PATH;
         System.out.println(currentPath + Constant.CMD_SUFFIX);
         try {
-            while(scanner.hasNextLine()) {
-                command = scanner.nextLine();
+            while(SCANNER.hasNextLine()) {
+                command = SCANNER.nextLine();
                 if (command.startsWith(Constant.CMD_IDENTIFIER)) {
                     command = command.substring(Constant.CMD_IDENTIFIER.length() + 1);
                     pieces = command.split(" ");
@@ -300,9 +312,12 @@ class DownloadClient implements Runnable {
 
                 Socket socket = new Socket(ip, socketPort);
 
-                DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
-                DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
-                DataOutputStream fileDataOutputStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(file, true)));
+                DataOutputStream dataOutputStream = new DataOutputStream(
+                    new BufferedOutputStream(socket.getOutputStream()));
+                DataInputStream dataInputStream = new DataInputStream(
+                    new BufferedInputStream(socket.getInputStream()));
+                DataOutputStream fileDataOutputStream = new DataOutputStream(
+                    new BufferedOutputStream(new FileOutputStream(file, true)));
 
                 // send 'get'
                 dataOutputStream.writeUTF(Constant.GET);
@@ -349,8 +364,10 @@ class UploadClient implements Runnable {
                 Socket socket = new Socket(datanode.get("Ip"), Integer.valueOf(datanode.get("SocketPort")));
 
                 File file = new File(filename);
-                DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
-                DataInputStream fileDataInputStream = new DataInputStream(new BufferedInputStream(new FileInputStream(file)));
+                DataOutputStream dataOutputStream = new DataOutputStream(
+                    new BufferedOutputStream(socket.getOutputStream()));
+                DataInputStream fileDataInputStream = new DataInputStream(
+                    new BufferedInputStream(new FileInputStream(file)));
 
                 // send 'put'
                 dataOutputStream.writeUTF(Constant.PUT);
@@ -371,11 +388,13 @@ class UploadClient implements Runnable {
                 while ((tmpLength = fileDataInputStream.read(bytes)) != -1) {
                     if (currOffset + tmpLength < offset) {
                     } else if (currOffset < offset) {
-                        dataOutputStream.write(bytes, (int)(offset - currOffset), Math.min((int)(currOffset + tmpLength - offset), tmpLength));
+                        dataOutputStream.write(bytes, (int)(offset - currOffset),
+                            Math.min((int)(currOffset + tmpLength - offset), tmpLength));
                     } else if (currOffset + tmpLength < offset + length) {
                         dataOutputStream.write(bytes, 0, tmpLength);
                     } else if (currOffset < offset + length) {
-                        dataOutputStream.write(bytes, 0, Math.min((int)(offset + length - currOffset), tmpLength));
+                        dataOutputStream.write(bytes, 0,
+                            Math.min((int)(offset + length - currOffset), tmpLength));
                     } else {
                         break;
                     }

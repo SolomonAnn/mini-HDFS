@@ -12,8 +12,8 @@ import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author: An
@@ -21,10 +21,11 @@ import java.util.logging.Logger;
  */
 
 public class Datanode {
-    private static final Logger logger = Logger.getLogger(Constant.CLIENT_GREETING);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Datanode.class);
 
-    private final ManagedChannel channel;
-    private final DatanodeNamenodeProtocolGrpc.DatanodeNamenodeProtocolBlockingStub blockingStub;
+    private final ManagedChannel managedChannel;
+    private final DatanodeNamenodeProtocolGrpc.DatanodeNamenodeProtocolBlockingStub
+        datanodeNamenodeProtocolBlockingStub;
 
     public String ip;
     public int rpcPort;
@@ -33,18 +34,20 @@ public class Datanode {
     private boolean hasRegistered;
 
     public Datanode(String ip, int rpcPort, int socketRpc) {
-        this.channel = ManagedChannelBuilder
+        this.managedChannel = ManagedChannelBuilder
                 .forAddress(ip, rpcPort)
                 .usePlaintext()
                 .build();
-        this.blockingStub = DatanodeNamenodeProtocolGrpc.newBlockingStub(channel);
+        this.datanodeNamenodeProtocolBlockingStub =
+            DatanodeNamenodeProtocolGrpc.newBlockingStub(managedChannel);
         this.ip = ip;
         this.rpcPort = rpcPort;
         this.socketPort = socketRpc;
     }
 
     public void register() {
-        DatanodeNamenodeProtocolProtos.RegisterRequestProto request = DatanodeNamenodeProtocolProtos.RegisterRequestProto
+        DatanodeNamenodeProtocolProtos.RegisterRequestProto request =
+            DatanodeNamenodeProtocolProtos.RegisterRequestProto
                 .newBuilder()
                 .setId(HdfsProtocolProtos.IdProto
                         .newBuilder()
@@ -55,17 +58,18 @@ public class Datanode {
                 .build();
         DatanodeNamenodeProtocolProtos.RegisterResponseProto response;
         try {
-            response = blockingStub.register(request);
+            response = datanodeNamenodeProtocolBlockingStub.register(request);
             hasRegistered = response.getIsSuccessful();
         } catch (StatusRuntimeException e) {
-            logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+            LOGGER.warn("RPC failed: {0}", e.getStatus());
             return;
         }
         return;
     }
 
     public boolean heartbeat() {
-        DatanodeNamenodeProtocolProtos.HeartbeatRequestProto request = DatanodeNamenodeProtocolProtos.HeartbeatRequestProto
+        DatanodeNamenodeProtocolProtos.HeartbeatRequestProto request =
+            DatanodeNamenodeProtocolProtos.HeartbeatRequestProto
                 .newBuilder()
                 .setId(HdfsProtocolProtos.IdProto
                         .newBuilder()
@@ -77,9 +81,9 @@ public class Datanode {
                 .build();
         DatanodeNamenodeProtocolProtos.HeartbeatResponseProto response;
         try {
-            response = blockingStub.heartbeat(request);
+            response = datanodeNamenodeProtocolBlockingStub.heartbeat(request);
         } catch (StatusRuntimeException e) {
-            logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
+            LOGGER.warn("RPC failed: {0}", e.getStatus());
             return false;
         }
         return response.getIsSuccessful();
@@ -93,7 +97,9 @@ public class Datanode {
         Constant.RPC_PORT = Integer.valueOf(args[4]);
         Constant.SOCKET_PORT = Integer.valueOf(args[5]);
 
-        Datanode datanode = new Datanode(Constant.NAMENODE_IP, Constant.RPC_PORT, Constant.SOCKET_PORT);
+        Datanode datanode = new Datanode(Constant.NAMENODE_IP,
+            Constant.RPC_PORT,
+            Constant.SOCKET_PORT);
 
         try {
             datanode.register();
@@ -177,20 +183,25 @@ class ServerHandler implements Runnable {
     public void run() {
         try {
             // receive filename
-            DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(socket.getInputStream()));
-            DataOutputStream dataOutputStream = new DataOutputStream(new BufferedOutputStream(socket.getOutputStream()));
+            DataInputStream dataInputStream = new DataInputStream(
+                new BufferedInputStream(socket.getInputStream()));
+            DataOutputStream dataOutputStream = new DataOutputStream(
+                new BufferedOutputStream(socket.getOutputStream()));
 
             String op = dataInputStream.readUTF();
             String filename = dataInputStream.readUTF();
 
             if (op.equals(Constant.PUT)) {
                 // receive file content
-                File file = new File(Constant.DATANODE_PATH + Constant.DIRECTORY_PREFIX + filename);
+                File file = new File(Constant.DATANODE_PATH
+                    + Constant.DIRECTORY_PREFIX
+                    + filename);
                 if (!file.exists()) {
                     file.createNewFile();
                 }
 
-                DataOutputStream fileDataOutputStream = new DataOutputStream(new BufferedOutputStream(new FileOutputStream(file)));
+                DataOutputStream fileDataOutputStream = new DataOutputStream(
+                    new BufferedOutputStream(new FileOutputStream(file)));
 
                 byte[] bytes = new byte[Constant.BYTES_SIZE];
                 int length;
@@ -204,11 +215,14 @@ class ServerHandler implements Runnable {
                 dataInputStream.close();
             } else if (op.equals(Constant.GET)){
                 // send file content
-                File file = new File(Constant.DATANODE_PATH + Constant.DIRECTORY_PREFIX + filename);
+                File file = new File(Constant.DATANODE_PATH
+                    + Constant.DIRECTORY_PREFIX
+                    + filename);
                 if (!file.exists()) {
                     file.createNewFile();
                 }
-                DataInputStream fileDataInputStream = new DataInputStream(new BufferedInputStream(new FileInputStream(file)));
+                DataInputStream fileDataInputStream = new DataInputStream(
+                    new BufferedInputStream(new FileInputStream(file)));
 
                 byte[] bytes = new byte[Constant.BYTES_SIZE];
                 int length;
